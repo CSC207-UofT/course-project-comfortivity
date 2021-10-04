@@ -7,9 +7,16 @@ When reviewers leave a review for a location they must specify a recommendation 
 Functions:
 
   seating/group seating?
+  
   bathroom
+  
   water fountain
+  
   food
+  
   tables
+  
   nappability
+  
   printers
+  
