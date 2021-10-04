@@ -5,6 +5,7 @@ Running the project brings up an alphanumerically gridded map of the UofT campus
 When reviewers leave a review for a location they must specify a recommendation (stars) and may also leave a comment. All users of the system log in with their username. Users can choose to be contacted by email.
 
 Functions:
+
   seating/group seating?
   bathroom
   water fountain
