@@ -6,7 +6,7 @@ When reviewers leave a review for a location they must specify a recommendation 
 
 Functions:
 
-  \t seating/group seating?
+  seating/group seating?
   
   bathroom
   
