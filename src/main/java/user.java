@@ -16,11 +16,11 @@ public class User {
         this.preferences = new HashMap<String, boolean>;
     }
 
-    public updatePrefernces(String key, boolean whetherNeeded) {
+    public void updatePrefernces(String key, boolean whetherNeeded) {
         this.preferences.push(key, whetherNeeded)
     }
     
-    public HashMap getPreferences(){
+    public void HashMap getPreferences(){
         return this.preferences
     }
     
