@@ -6,14 +6,22 @@ public class User {
     private String name;
     private String location;
     private HashMap reviews;
-    private HashMap filters;
+    private HashMap preferences;
 
     public User(String name, int studentNumber) {
         this.name = name;
         this.studentNumber = studentNumber;
         this.location = "";
         this.reviews = new HashMap<Building, Review>();
-        this.filters = new HashMap<String, boolean>;
+        this.preferences = new HashMap<String, boolean>;
     }
 
+    public updatePrefernces(String key, boolean whetherNeeded) {
+        this.preferences.push(key, whetherNeeded)
+    }
+    
+    public HashMap getPreferences(){
+        return this.preferences
+    }
+    
 }
