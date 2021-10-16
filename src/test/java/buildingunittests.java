@@ -1,10 +1,11 @@
 import org.junit.Before;
 import org.junit.Test;
 import java.util.List;
+import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
-public class BuildingTest {
+class BuildingTest {
     Building bldg;
 
     @Before
@@ -14,8 +15,8 @@ public class BuildingTest {
 
     @Test(timeout = 50)
     public void testCreateBuilding() {
-        newBLDG = new Building("Whitney Hall", "85 St George St");
-        attributes = newBLDG.getAttributes();
-        assert attributes.get("address") == "Whitney Hall"
+        Building newBLDG = new Building("Whitney Hall", "85 St George St");
+        HashMap attributes = newBLDG.getAttributes();
+        assert attributes.get("address") == "Whitney Hall";
     }
 }
