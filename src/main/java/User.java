@@ -21,7 +21,10 @@ public class User {
     public void updatePrefernces(String key, boolean whetherNeeded) {
         this.preferences.put(key, whetherNeeded);
     }
-    
+
+    public int getStudentNumber() {
+        return this.studentNumber;
+    }
     public HashMap getPreferences(){
         return this.preferences;
     }

@@ -10,6 +10,13 @@ public class Building {
 
 
 
+    public static Building load_buildings() {
+         //DataManager.building_return();
+
+        // Eventually it'll involve something like this, for now I'll just be like
+        return new Building("Whitney Hall", "85 St George St");
+
+    }
     public Building(){
         this.building_name = "";
         this.address = "";
