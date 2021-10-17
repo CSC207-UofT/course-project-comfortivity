@@ -7,4 +7,3 @@ public class NewUserRequest implements RequestInterface{
         this.student_id = 0;
     }
 
-}
