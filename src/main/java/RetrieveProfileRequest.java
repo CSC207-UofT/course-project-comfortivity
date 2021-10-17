@@ -1,8 +1,8 @@
 public class RetrieveProfileRequest implements RequestInterface{
-    int studen_id;
+    int student_id;
 
     public RetrieveProfileRequest(int studen_id) {
-        this.studen_id = 0;
+        this.student_id = 0;
     }
 
 }
