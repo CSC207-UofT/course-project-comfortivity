@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 public class User {
-    private int studentNumber;
+    public int studentNumber;
     private String name;
     private String location;
     private HashMap reviews;
@@ -28,7 +28,9 @@ public class User {
     public HashMap getPreferences(){
         return this.preferences;
     }
-
+    public String getName(){
+        return this.name;
+    }
     public static User load_user(int studentNumber) {
         // info will be some sort of collection, don't exactly know how it'll be so i'll parse later I guess.
 

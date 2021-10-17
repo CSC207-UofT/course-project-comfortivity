@@ -7,15 +7,16 @@ import java.util.Collection;
 
 public class UIController {
 
-    public void processRequest(NewReviewRequest req) {
+    public static void processRequest(NewReviewRequest req) {
         DataManager.updateNewReview(req.student_id, req.review, req.revbuilding);
     }
 
-    public void processRequest(NewUserRequest req) {
+    public static User processRequest(NewUserRequest req) {
         DataManager.updateNewUser(req.student_id, req.name);
+
     }
 
-    public Collection<Object> processRequest(RetrieveProfileRequest req) {
+    public static Collection<Object> processRequest(RetrieveProfileRequest req) {
         return DataManager.profileReturn(req.student_id);
     }
 }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
-
+import java.util.List;
 
 public class CLI {
     private static User UserProfile;
@@ -22,27 +22,33 @@ public class CLI {
         int student_number= sc.nextInt();              //reads input
         System.out.print("What's your Full Name");
         String name = sc.nextLine();
-        NewProfileRequest newProfileRequest = new NewProfileRequest(student_number, name);
-        Object[] newuserprofileinfo = processRequest(newProfileRequest);
-        return newuserprofileinfo; // return[student_number, name]
+        NewUserRequest UserRequestToPass = new NewUserRequest(student_number, name);
+        UIController.processRequest(UserRequestToPass);
+        Object[] studentinfonew = new Object[2];
+        studentinfonew[0] = student_number;
+        studentinfonew[1] = name;
+
+        return studentinfonew;
     }
 
-    private static Object[] retrieveprofile(){
+    private static Collection<Object> retrieveprofile(){
         Scanner sc = new Scanner(System.in);
         System.out.print("What's your student number");
         int student_number= sc.nextInt();              //reads input
         RetrieveProfileRequest retrieveProfileRequest = new RetrieveProfileRequest(student_number);
-        Object[] existinguserprofileinfo = processRequest(retrieveProfileRequest);
-        return existinguserprofileinfo; // return[student_number, name]
+
+        return UIController.processRequest(retrieveProfileRequest); // return[student_number, name]
     }
 
     private static Building[] retrievebuildings(){
         BuildingInfoRequest buildingInfoRequest = new BuildingInfoRequest();
-        Building[] buildingslist = (Building[]) processRequest(buildingInfoRequest);
+        //Building[] buildingslist = (Building[]) processRequest(buildingInfoRequest);
+        Building[] buildingslist = new Building[1];
+        buildingslist[0] = new Building("Whitney Hall");
         return buildingslist;
     }
 
-    private static ArrayList<Building> initiate_search(User userprofile, Building[] buildings_list){
+    private static ArrayList<Building> initiate_search(User userprofile, ArrayList<Building> buildings_list){
         Scanner sc = new Scanner(System.in);
         System.out.print("What's your next main activity.\n" +
                 "Enter 'study' for Study\n" +
@@ -51,9 +57,9 @@ public class CLI {
         String activity = sc.nextLine();
         System.out.print("What search radius would you want?");
         int search_radius = sc.nextInt();
-        SearchRequest searchRequest = new SearchRequest(UserProfile, BuildingList, activity,
-                search_radius);
-        ArrayList<Building> preference_building_list = processRequest(searchRequest);
+        SearchRequest searchRequest = new SearchRequest(userprofile.getStudentNumber(),
+                search_radius, (List) buildings_list);
+        ArrayList<Building> preference_building_list = SearchUseCase.search(searchRequest);
         return preference_building_list;
 
 // initiate search, get filters

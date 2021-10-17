@@ -1,3 +1,4 @@
+import java.util.List;
 public class SearchRequest implements RequestInterface{
     int student_id;
     int filter_distance;
@@ -8,5 +9,6 @@ public class SearchRequest implements RequestInterface{
         this.filter_distance = filter_distance;
         this.buildings_list = buildings_list;
     }
+
 
 }

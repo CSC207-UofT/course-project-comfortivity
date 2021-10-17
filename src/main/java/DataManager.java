@@ -15,6 +15,7 @@ public class DataManager {
         // Take the new user's student number and name to update the name of the user with that student number or
         // add the student number with the name if it doesn't exist already in the file.
         // THIS IS TEMPORARY.
+
     }
 
     public static ArrayList<Object> profileReturn(int studentNumber) {

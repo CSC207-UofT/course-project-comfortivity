@@ -1,4 +1,5 @@
-public class NewUserRequest implements RequestInterface{
+
+public class NewUserRequest implements RequestInterface {
     int student_id;
     String name;
 
@@ -7,3 +8,5 @@ public class NewUserRequest implements RequestInterface{
         this.student_id = student_id;
     }
 
+
+}
