@@ -77,7 +77,7 @@ public class CLI {
         String building = sc.nextLine();
         System.out.print("Rate it from 1 - 5");
         int starrating = sc.nextInt();
-        NewReviewRequest newReviewRequest = new NewReviewRequest(UserProfile, building, starrating);
+        NewReviewRequest newReviewRequest = new NewReviewRequest(UserProfile.getStudentNumber(), starrating, buildings_list[0]);
     }
 
     public static void main(String[] args)
@@ -91,7 +91,7 @@ public class CLI {
             Object[] userinfo = newprofile();
             UserProfile = (User)userinfo[0];
         } else if (ans1.equals("Y")) {
-            Object[] userinfo = retrieveprofile();
+            Object[] userinfo = retrieveprofile().toArray();
             UserProfile = (User)userinfo[0];
         } else{
             System.out.println("Pick either 'Y' or 'N'");

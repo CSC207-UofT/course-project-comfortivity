@@ -11,9 +11,8 @@ public class UIController {
         DataManager.updateNewReview(req.student_id, req.review, req.revbuilding);
     }
 
-    public static User processRequest(NewUserRequest req) {
+    public static void processRequest(NewUserRequest req) {
         DataManager.updateNewUser(req.student_id, req.name);
-
     }
 
     public static Collection<Object> processRequest(RetrieveProfileRequest req) {
