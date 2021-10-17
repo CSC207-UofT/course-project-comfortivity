@@ -33,8 +33,9 @@ public class User {
         // info will be some sort of collection, don't exactly know how it'll be so i'll parse later I guess.
 
 
-        ArrayList info = DataManager.profileReturn(studentNumber);
-        //Then normally here we'd make a user object out of the info and return it but for now
+        //info = DataManager.ProfileReturn(studentNumber);
+        //return new User(info);
+
         // THIS IS JUST TEMPORARY
 
         return new User("Michael", 3);
