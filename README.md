@@ -1,6 +1,5 @@
-## Replace this README.md!
+Hi! 
 
-This is a standard README.md file for you to replace. You'll want to include your own content here!
+course-project-comfortivity\src\main\java\CLI.java is going to be where our main() is.
 
-MD (Markdown) files use [Markdown formatting](https://guides.github.com/features/mastering-markdown/): 
-these look very much like .txt files, so you can write them in a very similar way.
+course-project-comfortivity\src\test\java\buildingunittests.java is going to be where our unit test is.
