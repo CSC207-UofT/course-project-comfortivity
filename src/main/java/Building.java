@@ -1,7 +1,5 @@
-import java.util.Map;
-import java.util.List;
-import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.*;
+
 public class Building {
     private String building_name;
     private String address;
@@ -10,11 +8,12 @@ public class Building {
 
 
 
-    public static Building load_buildings() {
-         //DataManager.building_return();
-
+    public static Collection<Building> load_buildings() {
+        DataManager dm = new DataManager();
+        Collection<Building> bldgs_to_return = dm.buildingReturn();
+        return bldgs_to_return;
         // Eventually it'll involve something like this, for now I'll just be like
-        return new Building("Whitney Hall", "85 St George St");
+
 
     }
     public Building(){
