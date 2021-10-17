@@ -105,6 +105,7 @@ public class CLI {
         if (user_choice == 1) {
             ArrayList<Building> building_selections = (ArrayList<Building>) initiate_search(user_Profile, BuildingList);
             //TODO i commented this System.out.println("Your building is: " + building_selections.get(0).getAddress());
+            //Fully implement according to the above this is skeleton
             System.out.println("Your building is " + "Whitney Hall at " + "85 St George St");
         } else if (user_choice == 2) {
             initiate_review(user_Profile, BuildingList);
