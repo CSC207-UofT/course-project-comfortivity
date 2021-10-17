@@ -4,7 +4,7 @@ public class NewReviewRequest implements RequestInterface{
     Building revbuilding;
 
     public NewReviewRequest(int student_id, Review review, Building reviewed) {
-        this.student_id = 0;
+        this.student_id = student_id;
         this.review = review;
         this.revbuilding = reviewed;
     }
