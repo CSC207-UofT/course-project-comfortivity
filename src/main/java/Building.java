@@ -8,9 +8,9 @@ public class Building {
 
 
 
-    public static Collection<Building> load_buildings() {
+    public static Collection<Object> load_buildings() {
         DataManager dm = new DataManager();
-        Collection<Building> bldgs_to_return = dm.buildingReturn();
+        Collection<Object> bldgs_to_return = Collections.singleton(dm.buildingReturn());
         return bldgs_to_return;
         // Eventually it'll involve something like this, for now I'll just be like
 
