@@ -1,5 +1,3 @@
-import java.util.Collection;
-import java.util.ArrayList;
 public class SearchUseCase{
     String building;
     String user;
@@ -11,8 +9,11 @@ public class SearchUseCase{
         this.map = map;
     }
     
-    public static Collection<Building> search(int id, double dist, ArrayList<Building> buildings) {
-        // Take the 
+    public static Collection<Building> search(SearchRequest req) {
+        // Take the searchRequest and filter the given list of buildings based on how far they are from the User specified in the request. If they
+        // are further than the filter distance provided, they are removed from the list. Return the new list.
+        // Note that this implementation is static and does not use the actual instance variables of SearchUseCase. In a later implementation, we may change this
+        // to specify the user location or for other reasons that makes the code more consistent.
         // THIS IS TEMPORARY.
         ArrayList<Building> filteredBuildings = new ArrayList<Building>();
         return filteredBuildings;
