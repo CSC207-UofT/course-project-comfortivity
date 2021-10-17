@@ -10,7 +10,7 @@ public class Building {
 
     public static Collection<Object> load_buildings() {
         DataManager dm = new DataManager();
-        Collection<Object> bldgs_to_return = Collections.singleton(dm.buildingReturn());
+        Collection<Building> bldgs_to_return = dm.buildingReturn();
         return bldgs_to_return;
         // Eventually it'll involve something like this, for now I'll just be like
 
