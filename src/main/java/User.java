@@ -14,7 +14,7 @@ public class User {
         this.name = name;
         this.studentNumber = studentNumber;
         this.location = "";
-        // this.reviews = new HashMap<Building, Review>();
+        this.reviews = new HashMap<Building, Review>();
         this.preferences = new HashMap<String, Object>();
     }
 
@@ -33,7 +33,7 @@ public class User {
         // info will be some sort of collection, don't exactly know how it'll be so i'll parse later I guess.
 
 
-        //info = DataManager.ProfileReturn(studentNumber);
+        //info = DataManager.profileReturn(studentNumber);
         //return new User(info);
 
         // THIS IS JUST TEMPORARY
