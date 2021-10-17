@@ -40,11 +40,11 @@ public class CLI {
         return UIController.processRequest(retrieveProfileRequest); // return[student_number, name]
     }
 
-    private static Building[] retrievebuildings(){
+    private static ArrayList<Building> retrievebuildings(){
         BuildingInfoRequest buildingInfoRequest = new BuildingInfoRequest();
         //Building[] buildingslist = (Building[]) processRequest(buildingInfoRequest);
-        Building[] buildingslist = new Building[1];
-        buildingslist[0] = new Building("Whitney Hall");
+        ArrayList<Building> buildingslist = new ArrayList<Building>();
+        buildingslist.set(0, new Building("Whitney Hall"));
         return buildingslist;
     }
 
@@ -71,19 +71,20 @@ public class CLI {
         return preferred_building;
     }
 
-    private static void initiate_review(User userProfile, Building[] buildings_list){
+    private static void initiate_review(User userProfile, ArrayList<Building> buildings_list){
         Scanner sc = new Scanner(System.in);
         System.out.print("Press '1' to review Building 1");
         String building = sc.nextLine();
         System.out.print("Rate it from 1 - 5");
         int starrating = sc.nextInt();
-        NewReviewRequest newReviewRequest = new NewReviewRequest(UserProfile.getStudentNumber(), starrating, buildings_list[0]);
+        NewReviewRequest newReviewRequest = new NewReviewRequest(UserProfile.getStudentNumber(), starrating,
+                buildings_list.get(0));
     }
 
     public static void main(String[] args)
     {
 //        CLI cli = new CLI();
-        Building[] BuildingList = retrievebuildings();
+        ArrayList<Building> BuildingList = retrievebuildings();
         Scanner sc= new Scanner(System.in); //System.in is a standard input stream
         System.out.print("Hello, Do you have an account? Y/N");
         String ans1= sc.nextLine();              //reads string
