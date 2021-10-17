@@ -23,7 +23,7 @@ public class CLI {
         System.out.print("What's your Full Name");
         String name = sc.nextLine();
         NewProfileRequest newProfileRequest = new NewProfileRequest(student_number, name);
-        Object[] newuserprofileinfo = process_request(newProfileRequest);
+        Object[] newuserprofileinfo = processRequest(newProfileRequest);
         return newuserprofileinfo; // return[student_number, name]
     }
 
@@ -32,13 +32,13 @@ public class CLI {
         System.out.print("What's your student number");
         int student_number= sc.nextInt();              //reads input
         RetrieveProfileRequest retrieveProfileRequest = new RetrieveProfileRequest(student_number);
-        Object[] existinguserprofileinfo = process_request(retrieveProfileRequest);
+        Object[] existinguserprofileinfo = processRequest(retrieveProfileRequest);
         return existinguserprofileinfo; // return[student_number, name]
     }
 
     private static Building[] retrievebuildings(){
         BuildingInfoRequest buildingInfoRequest = new BuildingInfoRequest();
-        Building[] buildingslist = (Building[]) process_request(buildingInfoRequest);
+        Building[] buildingslist = (Building[]) processRequest(buildingInfoRequest);
         return buildingslist;
     }
 
@@ -53,7 +53,7 @@ public class CLI {
         int search_radius = sc.nextInt();
         SearchRequest searchRequest = new SearchRequest(UserProfile, BuildingList, activity,
                 search_radius);
-        ArrayList<Building> preference_building_list = process_request(searchRequest);
+        ArrayList<Building> preference_building_list = processRequest(searchRequest);
         return preference_building_list;
 
 // initiate search, get filters
