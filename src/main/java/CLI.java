@@ -57,8 +57,9 @@ public class CLI {
         String activity = sc.nextLine();
         System.out.print("What search radius would you want?");
         int search_radius = sc.nextInt();
+        //TODO: This should probably pass the userprofile itself rather than the student number, for search's sake
         SearchRequest searchRequest = new SearchRequest(userprofile.getStudentNumber(),
-                search_radius, (List) buildings_list);
+                search_radius, buildings_list);
         ArrayList<Building> preference_building_list = SearchUseCase.search(searchRequest);
         return preference_building_list;
 
@@ -99,7 +100,8 @@ public class CLI {
         }
 
 
-        System.out.print("What would you like to do next. \n Enter '1' to start a search. \n Enter '2' to start a review");
+        System.out.print("What would you like to do next. \n Enter '1' to start a search. \n Enter '2' to start a " +
+                "review");
         int user_choice = sc.nextInt();
         if (user_choice == 1) {
             ArrayList<Building> building_selections = (ArrayList<Building>) initiate_search(UserProfile, BuildingList);

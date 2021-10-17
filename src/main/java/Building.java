@@ -8,7 +8,7 @@ public class Building {
 
 
 
-    public static Collection<Object> load_buildings() {
+    public static Collection<Building> load_buildings() {
         DataManager dm = new DataManager();
         Collection<Building> bldgs_to_return = dm.buildingReturn();
         return bldgs_to_return;

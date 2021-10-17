@@ -1,3 +1,5 @@
+import java.util.Collection;
+import java.util.ArrayList;
 public class SearchUseCase{
     String building;
     String user;
@@ -9,7 +11,7 @@ public class SearchUseCase{
         this.map = map;
     }
     
-    public Collection<Building> search(int id, double dist, ArrayList<Building> buildings) {
+    public static Collection<Building> search(int id, double dist, ArrayList<Building> buildings) {
         // Take the 
         // THIS IS TEMPORARY.
         ArrayList<Building> filteredBuildings = new ArrayList<Building>();
