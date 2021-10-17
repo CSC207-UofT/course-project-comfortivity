@@ -26,11 +26,11 @@ public class DataManager {
         return studentdata;
     }
 
-    public static ArrayList<Object> buildingReturn() {
+    public static ArrayList<Building> buildingReturn() {
         // Load all the data for the buildings from the given file as elements of a Collection object, with each
         // element corresponding to a building's information.
         // THIS IS TEMPORARY.
-        ArrayList<Object> buildings = new ArrayList<Object>();
+        ArrayList<Building> buildings = new ArrayList<Building>();
         return buildings;
     }
 }
