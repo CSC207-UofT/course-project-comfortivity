@@ -17,7 +17,7 @@ public class DataManager {
         // THIS IS TEMPORARY.
     }
 
-    public static Collection<Object> profileReturn(int studentNumber) {
+    public static ArrayList<Object> profileReturn(int studentNumber) {
         // Load the data from the given file corresponding to the student with number studentNumber
         // into a Collection object info and return it.
         // THIS IS TEMPORARY.
@@ -25,7 +25,7 @@ public class DataManager {
         return studentdata;
     }
 
-    public static Collection<Object> buildingReturn() {
+    public static ArrayList<Object> buildingReturn() {
         // Load all the data for the buildings from the given file as elements of a Collection object, with each
         // element corresponding to a building's information.
         // THIS IS TEMPORARY.
