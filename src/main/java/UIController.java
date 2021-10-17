@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class UIController {
 
     public void processRequest(NewReviewRequest req) {
-        return DataManager.updateNewReview(req.student_id);
+        return DataManager.updateNewReview(req.student_id, req.review, req.building);
     }
 
     public void processRequest(NewUserRequest req) {
