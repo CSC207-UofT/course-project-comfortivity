@@ -18,11 +18,11 @@ public class DataManager {
 
     }
 
-    public static ArrayList<Object> profileReturn(int studentNumber) {
+    public static User profileReturn(int studentNumber) {
         // Load the data from the given file corresponding to the student with number studentNumber
         // into a Collection object info and return it.
         // THIS IS TEMPORARY.
-        ArrayList<Object> studentdata = new ArrayList<Object>();
+        User studentdata = new User("jeff", 100);
         return studentdata;
     }
 

@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.List;
 
 public class CLI {
-    private static User UserProfile;
+    private static User user_Profile;
     private static Collection<Building> BuildingList;
 
 //    public CLI(){
@@ -16,7 +16,7 @@ public class CLI {
 //        BuildingList = buildinglist;
 //    }
 
-    private static Object[] newprofile(){
+    private static User newprofile(){
         Scanner sc= new Scanner(System.in); //System.in is a standard input stream
         System.out.print("What's your student number");
         int student_number= sc.nextInt();              //reads input
@@ -24,14 +24,11 @@ public class CLI {
         String name = sc.nextLine();
         NewUserRequest UserRequestToPass = new NewUserRequest(student_number, name);
         UIController.processRequest(UserRequestToPass);
-        Object[] studentinfonew = new Object[2];
-        studentinfonew[0] = student_number;
-        studentinfonew[1] = name;
 
-        return studentinfonew;
+        return new User(name, student_number);
     }
 
-    private static Collection<Object> retrieveprofile(){
+    private static User retrieveprofile(){
         Scanner sc = new Scanner(System.in);
         System.out.print("What's your student number");
         int student_number= sc.nextInt();              //reads input
@@ -44,7 +41,7 @@ public class CLI {
         BuildingInfoRequest buildingInfoRequest = new BuildingInfoRequest();
         //Building[] buildingslist = (Building[]) processRequest(buildingInfoRequest);
         ArrayList<Building> buildingslist = new ArrayList<Building>();
-        buildingslist.set(0, new Building("Whitney Hall"));
+        // buildingslist.set(0, new Building("Whitney Hall"));
         return buildingslist;
     }
 
@@ -60,7 +57,8 @@ public class CLI {
         //TODO: This should probably pass the userprofile itself rather than the student number, for search's sake
         SearchRequest searchRequest = new SearchRequest(userprofile.getStudentNumber(),
                 search_radius, buildings_list);
-        ArrayList<Building> preference_building_list = SearchUseCase.search(searchRequest);
+        //ArrayList<Building> preference_building_list = SearchUseCase.search(searchRequest);
+        ArrayList<Building> preference_building_list = new ArrayList<Building>();
         return preference_building_list;
 
 // initiate search, get filters
@@ -78,40 +76,43 @@ public class CLI {
         String building = sc.nextLine();
         System.out.print("Rate it from 1 - 5");
         int starrating = sc.nextInt();
-        NewReviewRequest newReviewRequest = new NewReviewRequest(UserProfile.getStudentNumber(), starrating,
+        NewReviewRequest newReviewRequest = new NewReviewRequest(user_Profile.getStudentNumber(), starrating,
                 buildings_list.get(0));
     }
 
     public static void main(String[] args)
     {
 //        CLI cli = new CLI();
+        //TODO make this next line work again
         ArrayList<Building> BuildingList = retrievebuildings();
-        Scanner sc= new Scanner(System.in); //System.in is a standard input stream
+        Scanner sc = new Scanner(System.in); //System.in is a standard input stream
         System.out.print("Hello, Do you have an account? Y/N");
         String ans1= sc.nextLine();              //reads string
         if (ans1.equals("N")) {
-            Object[] userinfo = newprofile();
-            UserProfile = (User)userinfo[0];
+            user_Profile = newprofile();
+
         } else if (ans1.equals("Y")) {
-            Object[] userinfo = retrieveprofile().toArray();
-            UserProfile = (User)userinfo[0];
+            User userinfo = retrieveprofile();
+            user_Profile = userinfo;
         } else{
             System.out.println("Pick either 'Y' or 'N'");
         }
 
 
-        System.out.print("What would you like to do next. \n Enter '1' to start a search. \n Enter '2' to start a " +
+        System.out.println("What would you like to do next. \n Enter '1' to start a search. \n Enter '2' to start a " +
                 "review");
         int user_choice = sc.nextInt();
         if (user_choice == 1) {
-            ArrayList<Building> building_selections = (ArrayList<Building>) initiate_search(UserProfile, BuildingList);
-            System.out.println("Your building is: " + building_selections.get(0).getAddress());
+            ArrayList<Building> building_selections = (ArrayList<Building>) initiate_search(user_Profile, BuildingList);
+            //TODO i commented this System.out.println("Your building is: " + building_selections.get(0).getAddress());
+            System.out.println("Your building is " + "Whitney Hall at " + "85 St George St");
         } else if (user_choice == 2) {
-            initiate_review(UserProfile, BuildingList);
+            initiate_review(user_Profile, BuildingList);
             System.out.println("Thank you");
         } else{
             System.out.println("Pick either '1' or '2'");
         }
+
     }
 }
 

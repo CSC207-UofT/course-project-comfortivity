@@ -15,7 +15,7 @@ public class UIController {
         DataManager.updateNewUser(req.student_id, req.name);
     }
 
-    public static Collection<Object> processRequest(RetrieveProfileRequest req) {
+    public static User processRequest(RetrieveProfileRequest req) {
         return DataManager.profileReturn(req.student_id);
     }
 }

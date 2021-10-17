@@ -1,3 +1,6 @@
+import java.util.Collection;
+import java.util.ArrayList;
+
 public class SearchUseCase{
     String building;
     String user;
