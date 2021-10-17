@@ -4,6 +4,6 @@ public class NewUserRequest implements RequestInterface{
 
     public NewUserRequest(int student_id, String name) {
         this.name = name;
-        this.student_id = 0;
+        this.student_id = student_id;
     }
 
