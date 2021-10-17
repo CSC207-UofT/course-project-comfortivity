@@ -5,26 +5,31 @@ import java.util.ArrayList;
 
 public class DataManager {
 
-    public void updateNewReview() {
-        //
+    public static void updateNewReview(int id, Review review, Building building) {
+        // Take the new review, the building for which the review is, and user's student number
+        // to update the review for that user or add a review for that building if not already there in the file.
+        // THIS IS TEMPORARY.
     }
 
-    public void updateNewUser() {
-        //
+    public static void updateNewUser(int id, String name) {
+        // Take the new user's student number and name to update the name of the user with that student number or
+        // add the student number with the name if it doesn't exist already in the file.
+        // THIS IS TEMPORARY.
     }
 
-    public Collection<Object> profileReturn(int studentNumber) {
+    public static Collection<Object> profileReturn(int studentNumber) {
         // Load the data from the given file corresponding to the student with number studentNumber
         // into a Collection object info and return it.
-        // THIS IS JUST TEMPORARY;
-        List<Object> studentdata = Arrays.aslist("", 0);
+        // THIS IS TEMPORARY.
+        ArrayList<Object> studentdata = new ArrayList<Object>();
         return studentdata;
     }
 
-    public Collection<Building> buildingReturn() {
-        // Load all the data for the buildings from the given file as Building objects in a Collection object
-        // THIS IS JUST TEMPORARY;
-        List<Building> buildings = new List[0];
+    public static Collection<Object> buildingReturn() {
+        // Load all the data for the buildings from the given file as elements of a Collection object, with each
+        // element corresponding to a building's information.
+        // THIS IS TEMPORARY.
+        ArrayList<Object> buildings = new ArrayList<Object>();
         return buildings;
     }
 }

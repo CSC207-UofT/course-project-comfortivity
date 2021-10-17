@@ -6,19 +6,15 @@ import java.util.ArrayList;
 
 public class UIController {
 
-    public  processRequest(Request request) {
-
+    public void processRequest(NewReviewRequest req) {
+        return DataManager.updateNewReview(req.student_id);
     }
 
-    public process() {
-
+    public void processRequest(NewUserRequest req) {
+        return DataManager.updateNewUser(req.student_id, req.name);
     }
 
-    public newUser() {
-
-    }
-
-    public retrieveProfile() {
-
+    public Collection<Object> processRequest(RetrieveProfileRequest req) {
+        return DataManager.profileReturn(req.student_number);
     }
 }
