@@ -1,22 +1,20 @@
 UofT Campus Location Review System:
 
-Running the project brings up an alphanumerically gridded map of the UofT campus with a prompt for the user to enter where they are based on the alphanumeric grid. Each location corresponds to a coordinate on the map of the UofT campus, floor, basic functions, traffic, capacity, custom?, distance, and atmosphere. Users can select filters based on above attributes to narrow their search. Locations will be recommended based on distance from user after user inputs their location. 
+Specification:
+i.	The user creates a new profile with his name and student number. The profile stores his ratings and reviews of various buildings. The profile also stores his preference list which is a collection of ranked lists of buildings ranked according to different criteria like: study, relaxation, quiet.
 
-When reviewers leave a review for a location they must specify a recommendation (stars) and may also leave a comment. All users of the system log in with their username. Users can choose to be contacted by email.
+ii.	Running the program creates a shell that prompts the user to input his location
 
-Functions:
+iii.	The user inputs his location based on the alphanumerically gridded map.
 
-  seating/group seating?
-  
-  bathroom
-  
-  water fountain
-  
-  food
-  
-  tables
-  
-  nappability
-  
-  printers
+iv.	Each building has attributes like: group sitting, tables, private study space, group study space, bathrooms, water fountain, food, free food, grid location
+
+v.	The user can choose which attributes they do and don’t want from the specific buildings. These would be implemented as filters in the search. For example, the user can specify if he only wants buildings with bathrooms, or if he wants a quiet study area, or buildings with above 4 star ratings, or a search radius.
+
+vi.	The  program will return locations with those attributes that best fit the users specifications
+
+vii.	The user can leave a review of a building in stars.
+
+viii.	The user can add a building to the system. 
+
   
