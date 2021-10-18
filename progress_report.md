@@ -16,3 +16,14 @@ We plan on fleshing out our code more. Start with actually implementing algorith
 
 As a team, we will all commit to 2 hour weekly meetings.
 
+Contributions:
+
+Gesikeme Wodu: 
+
+David Basil: 
+
+Edmund Rong: 
+
+Nori Lam: SearchUseCase, Request
+
+Gurmanjot Singh: UIController, DataManager, search in SearchUseCase, attributes of Request implemented classes, and debugging syntax errors in all modules.
