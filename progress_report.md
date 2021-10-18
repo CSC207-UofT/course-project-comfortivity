@@ -18,12 +18,12 @@ As a team, we will all commit to 2 hour weekly meetings.
 
 Contributions: (what was implemented and done)
 
-Gesikeme Wodu: 
+Gesikeme Wodu: Implemented CLI, wrote progress report, wrote scenario, worked on CRC cards, and debugged syntax errors in all modules.
 
-David Basil: 
+David Basil: Implemented Building, User, SchoolMap, worked on CRC cards, Building unittest and debugged syntax errors and other exceptions in all modules (mainly CLI).
 
-Edmund Rong: 
+Edmund Rong: Wrote specification, implemented DataManager, 
 
-Nori Lam: 
+Nori Lam: Implemented Request classes, worked on CRC cards,
 
-Gurmanjot Singh: UIController, DataManager, Review, search in SearchUseCase, attributes of Request implemented classes, and debugging syntax errors in all modules.
+Gurmanjot Singh: Implemented UIController Review, search in SearchUseCase, changed attributes of Request implemented classes, and debugged syntax errors in all modules.
