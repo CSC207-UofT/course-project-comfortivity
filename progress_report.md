@@ -24,6 +24,6 @@ David Basil:
 
 Edmund Rong: 
 
-Nori Lam: SearchUseCase, Request
+Nori Lam: 
 
 Gurmanjot Singh: UIController, DataManager, search in SearchUseCase, attributes of Request implemented classes, and debugging syntax errors in all modules.
