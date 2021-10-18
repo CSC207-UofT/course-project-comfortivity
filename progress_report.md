@@ -18,7 +18,7 @@ Our two greatest challenges were planned meetings and git hub.
 
 GitHub: Git hub was a big problem from the onset, from creating. Even after we were able to clone repository, when it came to pushing and merging files and branches, we came upon various problems. Some files weren’t registered as Java files, and when we re-cloned the repository, our project files were under a different folder called project files preventing some of us from running the files.
 
-Planned Meetings: We have only been able to meet once in person, and only 3/5 members were present. We are also a small group, so each person is crucial to the success of the group.
+Planned Meetings: We have only been able to meet once in person, and only 3/5 members were present. We are also a small group, so each person is crucial to the success of the group. This caused several miscommunications in how we were supposed to implement our code, so everyone did they're part separately and it took a lot of debugging and changing to make the code consistent.
 
 ............................
 
