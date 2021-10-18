@@ -16,7 +16,7 @@ We plan on fleshing out our code more. Start with actually implementing algorith
 
 As a team, we will all commit to 2 hour weekly meetings.
 
-Contributions:
+Contributions: (what was implemented and done)
 
 Gesikeme Wodu: 
 
@@ -26,4 +26,4 @@ Edmund Rong:
 
 Nori Lam: 
 
-Gurmanjot Singh: UIController, DataManager, search in SearchUseCase, attributes of Request implemented classes, and debugging syntax errors in all modules.
+Gurmanjot Singh: UIController, DataManager, Review, search in SearchUseCase, attributes of Request implemented classes, and debugging syntax errors in all modules.
