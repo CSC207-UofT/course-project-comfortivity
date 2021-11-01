@@ -11,6 +11,12 @@ public class DataManager {
         // THIS IS TEMPORARY.
     }
 
+    public static schoolMap loadMapFromFile(){
+        schoolMap mapToReturn = new schoolMap();
+        return mapToReturn;
+
+    }
+
     public static void updateNewUser(int id, String name) {
         // Take the new user's student number and name to update the name of the user with that student number or
         // add the student number with the name if it doesn't exist already in the file.

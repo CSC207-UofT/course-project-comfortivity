@@ -12,7 +12,7 @@ public class SearchUseCase{
         this.map = map;
     }
     
-    public static Collection<Building> search(SearchRequest req) {
+    public static ArrayList<Building> search(SearchRequest req) {
         // Take the searchRequest and filter the given list of buildings based on how far they are from the User specified in the request. If they
         // are further than the filter distance provided, they are removed from the list. Return the new list.
         // Note that this implementation is static and does not use the actual instance variables of SearchUseCase. In a later implementation, we may change this

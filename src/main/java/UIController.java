@@ -15,6 +15,9 @@ public class UIController {
         DataManager.updateNewUser(req.student_id, req.name);
     }
 
+    public static Building getBuildingToReview(schoolMap campusMap) {
+        return(CLI.getListContainingEmptyBuilding().get(0));
+    }
     public static User processRequest(RetrieveProfileRequest req) {
         return DataManager.profileReturn(req.student_id);
     }

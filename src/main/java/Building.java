@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Building {
-    private String building_name;
+    private String name;
     private String address;
     private int star_rating;
     private boolean bathrooms;
@@ -17,7 +17,7 @@ public class Building {
 
     }
     public Building(){
-        this.building_name = "";
+        this.name = "";
         this.address = "";
         this.star_rating = 0;
         this.bathrooms = false;
@@ -25,21 +25,21 @@ public class Building {
     }
 
     public Building(String name, String address){
-        this.building_name = name;
+        this.name = name;
         this.address = address;
         this.star_rating = 0;
         this.bathrooms = false;
 
     }
     public Building(String name){
-        this.building_name = name;
+        this.name = name;
         this.address = "";
         this.star_rating = 0;
         this.bathrooms = false;
 
     }
     public Building(String name, String address, boolean bathrooms, int starRating){
-        this.building_name = name;
+        this.name = name;
         this.address = address;
         this.bathrooms = bathrooms;
         this.star_rating = starRating;
@@ -54,6 +54,7 @@ public class Building {
         return this.address;
     }
 
+    public String getName() {return this.name;}
     public HashMap<String, Object> getAttributes() {
         HashMap<String, Object> attributes = new HashMap<String, Object>();
         attributes.put("address", this.address);
