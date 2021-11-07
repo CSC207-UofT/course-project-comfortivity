@@ -38,7 +38,7 @@ public class PromptActionListener extends Observable implements ActionListener {
         masterPanel.setLayout(new BoxLayout(masterPanel, BoxLayout.Y_AXIS));
 
         this.genericPromptFrame = new JFrame("Prompt Screen");
-        this.genericPromptFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.genericPromptFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.genericPromptFrame.setSize(600,100);
         this.genericPromptFrame.add(masterPanel);
         this.genericPromptFrame.setVisible(true);
@@ -50,7 +50,7 @@ public class PromptActionListener extends Observable implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        this.genericPromptFrame.dispatchEvent(new WindowEvent(this.genericPromptFrame, WindowEvent.WINDOW_CLOSING));
         this.genericPromptFrame.setVisible(false);
         this.promptFrameStillOpen = false;
 

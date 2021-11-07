@@ -19,7 +19,7 @@ public StartScreenActionListener() throws IOException {
      As you might guess, this method opens a window displaying a 'welcome' screen
      */
     this.welcomeFrame = new JFrame("StartUPScreen");
-    this.welcomeFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    this.welcomeFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     this.welcomeFrame.setSize(600,600);
 
     Toolkit toolkit =Toolkit.getDefaultToolkit();
@@ -46,7 +46,7 @@ public StartScreenActionListener() throws IOException {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+    this.welcomeFrame.dispatchEvent(new WindowEvent(this.welcomeFrame, WindowEvent.WINDOW_CLOSING));
     this.welcomeFrame.setVisible(false);
     this.welcomeFrameStillOpen = false;
     }
