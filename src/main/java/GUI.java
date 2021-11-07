@@ -2,6 +2,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -11,25 +12,24 @@ import javax.swing.JFrame;
 
 public class GUI  {
 
-    public static void main(String args[]) throws IOException {
-        displayWelcomeScreen();
-
-        genericPromptUserResponse("hey answer this question");
+    public static void main(String args[]) throws IOException, InterruptedException {
+        UIController.welcomeTheUser();
+        System.out.println(UIController.askTheUser("Hey how old are you?"));
     }
 
-    public static void displayWelcomeScreen() throws IOException {
+    public static void displayWelcomeScreen() throws IOException, InterruptedException {
         /**
         As you might guess, this method opens a window displaying a 'welcome' screen
          */
         StartScreenActionListener AL = new StartScreenActionListener();
-        int answer = 0;
         while(AL.welcomeFrameStillOpen){
-            System.out.println("hi");
+            Thread.sleep(100);
         }
+        // AL.welcomeFrame.dispatchEvent(new WindowEvent(AL.welcomeFrame, WindowEvent.WINDOW_CLOSING));
 
     }
 
-    public static String genericPromptUserResponse(String prompt) throws IOException {
+    public static String genericPromptUserResponse(String prompt) throws IOException, InterruptedException {
         /**
          As you might guess, this method prompts a user response to the question prompt passed into it.
          it returns the user's answer.
@@ -41,33 +41,19 @@ public class GUI  {
 
     }
 
-    public static String genericPromptUserResponse(String prompt, int  maxResponseLength) throws IOException {
+    public static String genericPromptUserResponse(String prompt, int  maxResponseLength) throws IOException,
+            InterruptedException {
         /**
          As you might guess, this method prompts a user response to the question prompt passed into it.
          it returns the user's answer.
          You can optionally pass in a param that is the length of answer the thing will accept
          */
-        JPanel lowerPanel = new JPanel();
-        JPanel higherPanel = new JPanel();
-        JPanel masterPanel = new JPanel();
-        JLabel promptLabel = new JLabel(prompt);
-        JTextField responseField = new JTextField(maxResponseLength);
-        JLabel responseFieldLabel = new JLabel("enter response here");
-        JButton confirmButton = new JButton("Confirm");
-        higherPanel.add(promptLabel);
-        lowerPanel.add(responseField);
-        lowerPanel.add(responseFieldLabel);
-        lowerPanel.add(confirmButton);
-        masterPanel.add(higherPanel);
-        masterPanel.add(lowerPanel);
-        masterPanel.setLayout(new BoxLayout(masterPanel, BoxLayout.Y_AXIS));
+        PromptActionListener AL = new PromptActionListener(prompt, maxResponseLength);
+        while(AL.promptFrameStillOpen){
+            Thread.sleep(100);
+        }
 
-        JFrame genericPromptFrame = new JFrame("Prompt Screen");
-        genericPromptFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        genericPromptFrame.setSize(600,100);
-        genericPromptFrame.add(masterPanel);
-        genericPromptFrame.setVisible(true);
-        return("xoxo");
+        return AL.getResponse();
 
     }
 }

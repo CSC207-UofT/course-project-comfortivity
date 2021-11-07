@@ -8,9 +8,14 @@ import java.util.Collection;
 
 public class UIController {
 
-    public static void welcomeTheUser() throws IOException {
+    public static void welcomeTheUser() throws IOException, InterruptedException {
         GUI.displayWelcomeScreen();
     }
+
+    public static String askTheUser(String prompt) throws IOException, InterruptedException {
+        return GUI.genericPromptUserResponse(prompt);
+    }
+
     public static void welcomingFinished() {
 
     }
