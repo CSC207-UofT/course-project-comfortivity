@@ -6,7 +6,7 @@ public class Building {
     private int star_rating;
     private boolean bathrooms;
 
-
+//TODO can we implement a getTopReview() method?
 
     public static Collection<Building> load_buildings() {
         DataManager dm = new DataManager();
