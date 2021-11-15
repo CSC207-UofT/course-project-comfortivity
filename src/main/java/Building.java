@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Building {
+public class Building implements Buildable {
     private String name;
     private String address;
     private int star_rating;
