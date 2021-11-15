@@ -1,4 +1,4 @@
-Progress Report:
+# Progress Report:
 
 Our Code is meant to be a productivity app that aids everyday students, especially the relatively new ones, make better planned decisions on where to spend their time in between classes.
 
