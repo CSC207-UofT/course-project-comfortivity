@@ -27,6 +27,9 @@ public class UIController {
         DataManager.updateNewUser(req.student_id, req.name);
     }
 
+    public static void displaySearchResultFrame(ArrayList<Building> buildings){
+        GUI.displaySearchResultFrame(buildings);
+    }
     public static Building getBuildingToReview(schoolMap campusMap) {
         return(CLI.getListContainingEmptyBuilding().get(0));
     }

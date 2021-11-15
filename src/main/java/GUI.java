@@ -68,4 +68,9 @@ public class GUI  {
         return AL.getResponse();
 
     }
+
+    public static void displaySearchResultFrame(ArrayList<Building> buildings) {
+        SearchResultUIFrame searchResultFrame = new SearchResultUIFrame(buildings);
+        searchResultFrame.setVisible(true);
+    }
 }

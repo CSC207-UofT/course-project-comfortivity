@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
@@ -16,22 +17,20 @@ public class CLI {
 //        BuildingList = buildinglist;
 //    }
 
-    private static User newprofile(){
+    private static User newprofile() throws IOException, InterruptedException {
         Scanner sc= new Scanner(System.in); //System.in is a standard input stream
-        System.out.print("What's your student number");
-        int student_number= sc.nextInt();              //reads input
-        System.out.print("What's your Full Name");
-        String name = sc.nextLine();
+        int student_number = Integer.valueOf(UIController.askTheUser("What's your student number"));//reads input
+        String name = UIController.askTheUser("What's your Full Name");
         NewUserRequest UserRequestToPass = new NewUserRequest(student_number, name);
         UIController.processRequest(UserRequestToPass);
 
         return new User(name, student_number);
     }
 
-    private static User retrieveprofile(){
+    private static User retrieveprofile() throws IOException, InterruptedException {
         Scanner sc = new Scanner(System.in);
-        System.out.print("What's your student number");
-        int student_number= sc.nextInt();              //reads input
+
+        int student_number= Integer.valueOf(UIController.askTheUser("What's your student number"));
         RetrieveProfileRequest retrieveProfileRequest = new RetrieveProfileRequest(student_number);
 
         return UIController.processRequest(retrieveProfileRequest); // return[student_number, name]
@@ -43,15 +42,12 @@ public class CLI {
         return campusMap;
     }
 
-    private static ArrayList<Building> initiate_search(User userprofile, schoolMap campusMap){
+    private static ArrayList<Building> initiate_search(User userprofile, schoolMap campusMap) throws IOException, InterruptedException {
         Scanner sc = new Scanner(System.in);
-        System.out.print("What's your next main activity.\n" +
-                "Enter 'study' for Study\n" +
-                "Enter 'chill' for Relaxation\n" +
-                "Enter 'eat' for Eating\n");
-        String activity = sc.nextLine();
-        System.out.print("What search radius would you want?");
-        int search_radius = sc.nextInt();
+        String activity = UIController.askTheUser("What's your next main activity. study chill or eat");
+
+
+        int search_radius = Integer.valueOf(UIController.askTheUser("What search radius would you want"));
         SearchRequest searchRequest = new SearchRequest(userprofile,
                 search_radius, campusMap);
         ArrayList<Building> preference_building_list = SearchUseCase.search(searchRequest);
@@ -80,49 +76,56 @@ public class CLI {
         return preferred_building;
     }
 
-    private static void initiate_review(User userProfile, schoolMap campusMap){
+    private static void initiate_review(User userProfile, schoolMap campusMap) throws IOException, InterruptedException {
         Building buildingToReview = UIController.getBuildingToReview(campusMap);
         Scanner sc = new Scanner(System.in);
-        System.out.print("Press '1' to review " + buildingToReview.getName());
+        //Todo fix this
+        UIController.askTheUser("Press '1' to review " + buildingToReview.getName());
         String building = sc.nextLine();
-        System.out.print("Rate it from 1 - 5");
-        int starrating = sc.nextInt();
+
+        // todo i should probably make it so it doesn't crash if it's not an int
+        int starrating = Integer.valueOf(UIController.askTheUser("Rate it from 1-5"));
         NewReviewRequest newReviewRequest = new NewReviewRequest(user_Profile.getStudentNumber(), starrating,
                 buildingToReview);
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws IOException, InterruptedException {
 //        CLI cli = new CLI();
+        UIController.welcomeTheUser();
         schoolMap campusMap = retrieveMap();
         Scanner sc = new Scanner(System.in); //System.in is a standard input stream
-        System.out.print("Hello, Do you have an account? Y/N");
-        String ans1= sc.nextLine();              //reads string
+        String ans1 = UIController.askTheUser("Do you have an account? Y/N");
+        //reads string
         if (ans1.equals("N")) {
             user_Profile = newprofile();
 
         } else if (ans1.equals("Y")) {
             User userinfo = retrieveprofile();
             user_Profile = userinfo;
-        } else{
-            System.out.println("Pick either 'Y' or 'N'");
+        } else {
+            UIController.askTheUser("Please type Y or N");
+            if (ans1.equals("N")) {
+                user_Profile = newprofile();
+
+            } else {
+                User userinfo = retrieveprofile();
+                user_Profile = userinfo;
+            }}
+
+
+            int user_choice = Integer.valueOf(UIController.askTheUser("What would you like to do next? 1: search, 2: review"));
+            if (user_choice == 1) {
+                ArrayList<Building> building_selections = (ArrayList<Building>) initiate_search(user_Profile, campusMap);
+                UIController.displaySearchResultFrame(building_selections);
+                //Fully implement according to the above this is skeleton
+            } else if (user_choice == 2) {
+                initiate_review(user_Profile, campusMap);
+
+            } else {
+                System.out.println("didn't work bra");// TODO: UIController.displayClosingScreen();
+            }
         }
 
 
-        System.out.println("What would you like to do next. \n Enter '1' to start a search. \n Enter '2' to start a " +
-                "review");
-        int user_choice = sc.nextInt();
-        if (user_choice == 1) {
-            ArrayList<Building> building_selections = (ArrayList<Building>) initiate_search(user_Profile, campusMap);
-            System.out.println("Your building is: " + building_selections.get(0).getAddress());
-            //Fully implement according to the above this is skeleton
-        } else if (user_choice == 2) {
-            initiate_review(user_Profile, campusMap);
-            System.out.println("Thank you");
-        } else{
-            System.out.println("Pick either '1' or '2'");
-        }
-
-    }
 }
 
