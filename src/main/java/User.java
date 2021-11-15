@@ -18,7 +18,7 @@ public class User {
         this.preferences = new HashMap<String, Object>();
     }
 
-    public void updatePrefernces(String key, boolean whetherNeeded) {
+    public void updatePreferences(String key, boolean whetherNeeded) {
         this.preferences.put(key, whetherNeeded);
     }
 
@@ -31,6 +31,7 @@ public class User {
     public String getName(){
         return this.name;
     }
+
     public static User load_user(int studentNumber) {
         // info will be some sort of collection, don't exactly know how it'll be so i'll parse later I guess.
 
@@ -42,5 +43,5 @@ public class User {
 
         return new User("Michael", 3);
     }
-    
+
 }
