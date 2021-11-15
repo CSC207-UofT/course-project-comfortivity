@@ -32,6 +32,8 @@ As a group, we are thinking of creating a completely new code draft branch, whic
 
 As well, we will be adding a CRC card section to our code that describes our code in detail and how each module is dependent on one another. We were unable to do this clearly because of our lack of direction and our consideration of several ways of implementation, but after our meetings we have had a much more concrete idea of how to write this code. We plan on dedicating much more time to this project as well, especially as a complete rewrite of the project. We also will create a more coherent log of our contributions to this updated version of the project, as well as more clearly organized packages and good code style with documentation.
 
+Together, these changes will allow for readability, obeying the SOLID principles and Clean Architecture model, as well as let our code run relatively correctly (ignoring actual bugs) and be testable for improvement. In hindsight, this was our plan after Phase 0, but due to personal hindrances, we were unable to completely follow through and just edited our previous code.
+
 ## Contributions: (what was implemented and done)
 
 Gesikeme Wodu: 
