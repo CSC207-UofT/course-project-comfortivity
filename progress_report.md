@@ -38,7 +38,7 @@ Together, these changes will allow for readability, obeying the SOLID principles
 
 Gesikeme Wodu: 
 
-David Basil: 
+David Basil: Made it work with a GUI mostly. Added listener classes to make buttons work on the interface, stuff like that. Changed some of the main method in CLI for that to work
 
 Edmund Rong: 
 
