@@ -1,6 +1,6 @@
-$$ Class: Building
-$ Parent Class: 
-$ Responsibilities:
+## Class: Building
+# Parent Class: 
+# Responsibilities:
 * 
-$ Collaborators:
+# Collaborators:
 * 
