@@ -1,4 +1,4 @@
-# Class: Building
+# Class: 
 ## Parent Class: 
 ## Responsibilities:
 * 
