@@ -12,7 +12,7 @@ import Mapping.*;
 public class schoolMap extends HashMap{
 
 
-    public static void Load_Map(){
+    public static void retriveMap(){
         // hardcoded for now, but in the future this will draw from data files i expect.
         schoolMap new_map = new schoolMap();
         new_map.put("A1", new ArrayList<Building>());
@@ -51,4 +51,19 @@ public class schoolMap extends HashMap{
     public void addBuilding(String coord, Building bldg){
         ((ArrayList)((HashMap) this).get(coord)).add(bldg);
     }
+
+    public ArrayList<Building> getAllBuildings(){
+        ArrayList<Building> buildings = new ArrayList<Building>();
+        for(Object key : this.keySet()){
+
+            for(Object building : (ArrayList) this.get(key)){
+                buildings.add((Building) building);
+            }
+        }
+    if(buildings.size() == 0){
+        return Main.getListContainingEmptyBuilding();
+    }
+    return buildings;
+    }
 }
+

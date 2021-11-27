@@ -33,9 +33,22 @@ public class UIController {
     public static void displaySearchResultFrame(ArrayList<Building> buildings){
         GUI.displaySearchResultFrame(buildings);
     }
-    public static Building getBuildingToReview(schoolMap campusMap) {
-        return(Main.getListContainingEmptyBuilding().get(0));
-        //todo make this actually go the right way actually
+    public static Building getBuildingToReview(schoolMap campusMap) throws IOException, InterruptedException {
+        String answer = askTheUser("Which building do you want to review?");
+        ArrayList<Building> buildings = campusMap.getAllBuildings();
+        for(Building building : buildings){
+            if(building.getName() == answer){
+                return building;
+            }
+        }
+        answer = askTheUser("Not found. Try again. Some available buildings are " + buildings.get(0).getName());
+        for(Building building : buildings){
+            if(building.getName() == answer){
+                return building;
+            }
+        }
+        return getBuildingToReview(campusMap);
+
     }
     public static User processRequest(RetrieveProfileRequest req) {
         return DataManager.profileReturn(req.student_id);
