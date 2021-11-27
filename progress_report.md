@@ -1,43 +1,47 @@
-Progress Report:
+# Progress Report
 
+## Purpose:
 Our Code is meant to be a productivity app that aids everyday students, especially the relatively new ones, make better planned decisions on where to spend their time in between classes.
 
 So far, we have been able to plan the structure of the code, although we do not yet know exactly how certain parts will be implemented, we have a good idea of what each part should do.
 
-............................
 
-Data Management:
+## Data Management:
 
-We have decided to use an external database, but we are not yet sure if we should use a regular txt file that we will write onto, or use an actual database.
+We have decided to use the application data platform MongoDB, but we are still learning it and working out the details. Especially an issue is how it will fit into our code.
 
-............................
 
-Challenges:
+## Challenges: (SOLID, Code Style, Testing, Functionality, etc.)
 
-Our two greatest challenges were planned meetings and git hub.
+Our main challenges currently involve code readability, and the code compiling and running incorrectly. To put it bluntly, the design for our code is not in a good state, with a lot of the classes having some redundant methods we added before and did not remove, some classes not obeying the dependency rule and being much more complicated than necessary (not obeying SOLID well), and so on, violating Clean Architecture.
 
-GitHub: Git hub was a big problem from the onset, from creating. Even after we were able to clone repository, when it came to pushing and merging files and branches, we came upon various problems. Some files weren’t registered as Java files, and when we re-cloned the repository, our project files were under a different folder called project files preventing some of us from running the files.
+Reading the code is also very confusing, as there are no Java docs, a lot of things are improperly and inconsistently formatted, and the parts that do function well are hurt by that. We haven't done too much refactoring yet either, as it seems like the code is just too unworkable. Testing would have helped with dealing with bugs, but we feel that the code is already too confusing to debug.
 
-Planned Meetings: We have only been able to meet once in person, and only 3/5 members were present. We are also a small group, so each person is crucial to the success of the group. This caused several miscommunications in how we were supposed to implement our code, so everyone did they're part separately and it took a lot of debugging and changing to make the code consistent.
+Not just that, but since we are still working out the details of the data management in our code, it is very difficult to run it practically for the moment.
 
-............................
 
-Moving Forward:
+## Progress: 
 
-We plan on fleshing out our code more. Start with actually implementing algorithms for our more advanced methods, like the search method. We will decide on how we will implement our database.
+However, we have figured a decent temporary organizational structure for our code. The base entities (Building, Review, User) are packaged together, while the UI and the controllers, GUI, and data managing pieces of the code all are grouped together. Similarly, the use cases are also put together, and the requests are in their own separate package as well. In general, classes with a similar abstract purpose (either as objects, interfaces, requests, and UI Data Managing) are put together. We will flesh this out more in our new draft of code.
 
-As a team, we will all commit to 2 hour weekly meetings.
+As well, we considered mainly two design patterns to use: Decorator and Memento. The former was implemented already for Building, to specify different Building utilities while minimizing the number of additional subclasses. Since we were still working out the possible utilities, we also left it as abstract classes and left a sample ConcreteBuildingDecorator class. For Memento, we were thinking of map states and updating the states of buildings, and if it was invalid we would go back to a previous state.
 
-............................
+## Moving Forward:
 
-Contributions: (what was implemented and done)
+As a group, we are thinking of creating a completely new code draft branch, which will obviously be inspired by some of the structural choices we made before and the workable parts of our design. However, as we are completely rewriting the code based on our updated model as opposed to updating the old model manually, we will make sure to keep the code streamlined all through writing it, and instead of just writing redundant sample placeholders, we will leave them as TODOs.
 
-Gesikeme Wodu: Implemented CLI, wrote progress report, wrote part of scenario, worked on CRC cards, and debugged syntax errors in all modules.
+As well, we will be adding a CRC card section to our code that describes our code in detail and how each module is dependent on one another. We were unable to do this clearly because of our lack of direction and our consideration of several ways of implementation, but after our meetings we have had a much more concrete idea of how to write this code. We plan on dedicating much more time to this project as well, especially as a complete rewrite of the project. We also will create a more coherent log of our contributions to this updated version of the project, as well as more clearly organized packages and good code style with documentation.
 
-David Basil: Implemented Building, User, SchoolMap, worked on CRC cards, Building unittest and debugged syntax errors and other exceptions in all modules (mainly CLI).
+Together, these changes will allow for readability, obeying the SOLID principles and Clean Architecture model, as well as let our code run relatively correctly (ignoring actual bugs) and be testable for improvement. In hindsight, this was our plan after Phase 0, but due to personal hindrances, we were unable to completely follow through and just edited our previous code.
 
-Edmund Rong: Wrote specification, implemented DataManager, and worked on CRC cards.
+## Contributions: (what was implemented and done)
 
-Nori Lam: Implemented Request classes, worked on CRC cards, and wrote part of scenario.
+Gesikeme Wodu: 
 
-Gurmanjot Singh: Implemented UIController Review, search in SearchUseCase, changed attributes of Request implemented classes, and debugged syntax errors in all modules.
+David Basil: Made it work with a GUI mostly. Added listener classes to make buttons work on the interface, stuff like that. Changed some of the main method in CLI for that to work
+
+Edmund Rong: 
+
+Nori Lam: 
+
+Gurmanjot Singh: Organized modules into packages, made Decorators for Building, and Buildable interface.
