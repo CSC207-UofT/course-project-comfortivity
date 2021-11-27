@@ -1,10 +1,8 @@
 package UIDataManaging;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Scanner;
-import java.util.List;
+import java.util.*;
+
 import Entities.*;
 import UIDataManaging.*;
 import Requests.*;
@@ -12,7 +10,7 @@ import UseCases.*;
 import Interfaces.*;
 import Mapping.*;
 
-public class CLI {
+public class Main {
     private static User user_Profile;
     private static Collection<Building> BuildingList;
 
@@ -51,6 +49,19 @@ public class CLI {
     }
 
     private static ArrayList<Building> initiate_search(User userprofile, schoolMap campusMap) throws IOException, InterruptedException {
+        String checkLocation = new String();
+        List<String> validLocations = Arrays.asList("A1", "B1", "C1", "D1", "E1", "F1",
+                "A2", "B2", "C2", "D2", "E2", "F2",
+                "A3", "B3", "C3", "D3", "E3", "F3",
+                "A4", "B4", "C4", "D4", "E4", "F4",
+                "A5", "B5", "C5", "D5", "E5", "F5");
+        while (!validLocations.contains(checkLocation)){
+            checkLocation = UIController.askForLocation();
+        }
+
+
+        userprofile.setLocation(checkLocation);
+        userprofile.setPreferences(UIController.askForPreferences());
         Scanner sc = new Scanner(System.in);
         String activity = UIController.askTheUser("What's your next main activity. study chill or eat");
 
@@ -86,15 +97,10 @@ public class CLI {
 
     private static void initiate_review(User userProfile, schoolMap campusMap) throws IOException, InterruptedException {
         Building buildingToReview = UIController.getBuildingToReview(campusMap);
-        Scanner sc = new Scanner(System.in);
-        //Todo fix this
-        UIController.askTheUser("Press '1' to review " + buildingToReview.getName());
-        String building = sc.nextLine();
-
-        // todo i should probably make it so it doesn't crash if it's not an int
-        int starrating = Integer.valueOf(UIController.askTheUser("Rate it from 1-5"));
-        NewReviewRequest newReviewRequest = new NewReviewRequest(user_Profile.getStudentNumber(), starrating,
+        Review review = UIController.getThemToReview(buildingToReview);
+        NewReviewRequest newReviewRequest = new NewReviewRequest(user_Profile.getStudentNumber(), review,
                 buildingToReview);
+        //todo whatever we do when a request is made to then implement said request idk exactly what.
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {

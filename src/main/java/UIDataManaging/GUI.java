@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JFrame;
 import Entities.*;
@@ -78,5 +79,32 @@ public class GUI  {
     public static void displaySearchResultFrame(ArrayList<Building> buildings) {
         SearchResultUIFrame searchResultFrame = new SearchResultUIFrame(buildings);
         searchResultFrame.setVisible(true);
+    }
+
+    public static Review getThemToReview(Building building) throws InterruptedException, IOException {
+
+        ReviewActionListener reviewFrame = new ReviewActionListener(building);
+        while(reviewFrame.reviewFrameStillOpen){
+            Thread.sleep(100);
+        }
+        return reviewFrame.getReview();
+    }
+
+    public static HashMap promptTheirPreferences() throws InterruptedException, IOException {
+        PreferenceActionListener preferenceFrame = new PreferenceActionListener();
+        while(preferenceFrame.preferenceFrameStillOpen){
+            Thread.sleep(100);
+        }
+
+        return preferenceFrame.getPreferences();
+    }
+
+    public static String promptTheirLocation() throws InterruptedException, IOException {
+        LocationActionListener locationFrame = new LocationActionListener();
+        while(locationFrame.locationFrameStillOpen){
+            Thread.sleep(100);
+        }
+
+        return locationFrame.getLocation();
     }
 }

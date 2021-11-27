@@ -44,7 +44,7 @@ public class PromptActionListener extends Observable implements ActionListener {
         masterPanel.add(lowerPanel);
         masterPanel.setLayout(new BoxLayout(masterPanel, BoxLayout.Y_AXIS));
 
-        this.genericPromptFrame = new JFrame("Prompt Screen");
+        this.genericPromptFrame = new JFrame("Review Screen");
         this.genericPromptFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.genericPromptFrame.setSize(600,100);
         this.genericPromptFrame.add(masterPanel);

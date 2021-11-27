@@ -1,16 +1,11 @@
 package UIDataManaging;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.Collection;
+
 import Entities.*;
-import UIDataManaging.*;
 import Requests.*;
-import UseCases.*;
-import Interfaces.*;
 import Mapping.*;
 
 
@@ -39,9 +34,22 @@ public class UIController {
         GUI.displaySearchResultFrame(buildings);
     }
     public static Building getBuildingToReview(schoolMap campusMap) {
-        return(CLI.getListContainingEmptyBuilding().get(0));
+        return(Main.getListContainingEmptyBuilding().get(0));
+        //todo make this actually go the right way actually
     }
     public static User processRequest(RetrieveProfileRequest req) {
         return DataManager.profileReturn(req.student_id);
+    }
+
+    public static String askForLocation() throws InterruptedException, IOException {
+        return GUI.promptTheirLocation();
+    }
+
+    public static HashMap askForPreferences() throws InterruptedException, IOException {
+        return GUI.promptTheirPreferences();
+    }
+
+    public static Review getThemToReview(Building building) throws InterruptedException, IOException {
+        return GUI.getThemToReview(building);
     }
 }

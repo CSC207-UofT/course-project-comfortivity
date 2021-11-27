@@ -6,9 +6,10 @@ import UseCases.*;
 import Interfaces.*;
 import Mapping.*;
 public class NewReviewRequest implements RequestInterface{
-    int student_id;
-    Review review;
-    Building revbuilding;
+    //Todo I just made these public so it would compile. Maybe make them private and make getters instead?
+    public int student_id;
+    public Review review;
+    public Building revbuilding;
 
     public NewReviewRequest(int student_id, Review review, Building reviewed) {
         this.student_id = student_id;

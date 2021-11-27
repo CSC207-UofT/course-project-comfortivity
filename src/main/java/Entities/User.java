@@ -22,12 +22,18 @@ public class User {
     public void updatePrefernces(String key, boolean whetherNeeded) {
         this.preferences.put(key, whetherNeeded);
     }
+    public void setLocation(String location){
+        this.location = location;
 
+    }
     public int getStudentNumber() {
         return this.studentNumber;
     }
     public HashMap getPreferences(){
         return this.preferences;
+    }
+    public void setPreferences(HashMap preferences){
+        this.preferences = preferences;
     }
     public String getName(){
         return this.name;
