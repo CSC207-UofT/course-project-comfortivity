@@ -1,9 +1,17 @@
+package UIDataManaging;
+
 import java.io.IOException;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Collection;
+import Entities.*;
+import UIDataManaging.*;
+import Requests.*;
+import UseCases.*;
+import Interfaces.*;
+import Mapping.*;
 
 
 public class UIController {

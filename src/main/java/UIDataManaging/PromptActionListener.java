@@ -1,3 +1,5 @@
+package UIDataManaging;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -8,7 +10,12 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
-
+import Entities.*;
+import UIDataManaging.*;
+import Requests.*;
+import UseCases.*;
+import Interfaces.*;
+import Mapping.*;
 public class PromptActionListener extends Observable implements ActionListener {
     JButton confirmButton;
     JFrame genericPromptFrame;

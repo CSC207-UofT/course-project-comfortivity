@@ -1,6 +1,12 @@
+package UseCases;
 import java.util.Collection;
 import java.util.ArrayList;
-
+import Entities.*;
+import UIDataManaging.*;
+import Requests.*;
+import UseCases.*;
+import Interfaces.*;
+import Mapping.*;
 public class SearchUseCase{
     String building;
     String user;

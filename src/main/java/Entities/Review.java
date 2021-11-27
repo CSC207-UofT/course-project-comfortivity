@@ -1,4 +1,4 @@
-
+package Entities;
 public class Review {
     int rating;
     String comment;

@@ -1,6 +1,13 @@
+package UIDataManaging;
+
 import javax.swing.*;
 import java.util.ArrayList;
-
+import Entities.*;
+import UIDataManaging.*;
+import Requests.*;
+import UseCases.*;
+import Interfaces.*;
+import Mapping.*;
 public class SearchResultUIFrame extends JFrame {
 
     public SearchResultUIFrame(ArrayList<Building> buildings){

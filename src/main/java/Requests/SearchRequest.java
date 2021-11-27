@@ -1,4 +1,11 @@
+package Requests;
 import java.util.List;
+import Entities.*;
+import UIDataManaging.*;
+import Requests.*;
+import UseCases.*;
+import Interfaces.*;
+import Mapping.*;
 public class SearchRequest implements RequestInterface{
     public User userProfile;
     public int filterDistance;

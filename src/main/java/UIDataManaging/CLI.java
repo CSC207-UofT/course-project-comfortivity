@@ -1,8 +1,16 @@
+package UIDataManaging;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
 import java.util.List;
+import Entities.*;
+import UIDataManaging.*;
+import Requests.*;
+import UseCases.*;
+import Interfaces.*;
+import Mapping.*;
 
 public class CLI {
     private static User user_Profile;
