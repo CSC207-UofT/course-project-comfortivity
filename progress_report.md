@@ -8,7 +8,7 @@ So far, we have been able to plan the structure of the code, although we do not 
 
 ## Data Management:
 
-We have decided to use the application data platform MongoDB, but we are still learning it and working out the details. Especially an issue is how it will fit into our code.
+We have decided to use the application data platform UIDataManaging.MongoDB, but we are still learning it and working out the details. Especially an issue is how it will fit into our code.
 
 
 ## Challenges: (SOLID, Code Style, Testing, Functionality, etc.)
