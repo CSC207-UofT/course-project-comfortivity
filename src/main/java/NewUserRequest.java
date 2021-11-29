@@ -1,5 +1,5 @@
 
-public class NewUserRequest implements RequestInterface {
+public class NewUserRequest implements InterfaceRequest {
     int student_id;
     String name;
 
