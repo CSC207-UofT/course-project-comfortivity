@@ -4,11 +4,8 @@ import java.io.IOException;
 import java.util.*;
 
 import Entities.*;
-import UIDataManaging.*;
 import Requests.*;
 import UseCases.*;
-import Interfaces.*;
-import Mapping.*;
 
 public class Main {
     private static User user_Profile;
@@ -24,6 +21,7 @@ public class Main {
 //    }
 
     private static User newprofile() throws IOException, InterruptedException {
+        //move to UserUseCase
         Scanner sc= new Scanner(System.in); //System.in is a standard input stream
         int student_number = Integer.valueOf(UIController.askTheUser("What's your student number"));//reads input
         String name = UIController.askTheUser("What's your Full Name");
@@ -35,7 +33,7 @@ public class Main {
 
     private static User retrieveprofile() throws IOException, InterruptedException {
         Scanner sc = new Scanner(System.in);
-
+        // move to UserUseCase
         int student_number= Integer.valueOf(UIController.askTheUser("What's your student number"));
         RetrieveProfileRequest retrieveProfileRequest = new RetrieveProfileRequest(student_number);
 
@@ -43,6 +41,7 @@ public class Main {
     }
 
     private static schoolMap retrieveMap(){
+        //move to MapUseCase
         schoolMap campusMap = DataManager.loadMapFromFile();
         ArrayList<Building> buildingslist = new ArrayList<Building>();
         return campusMap;
@@ -50,6 +49,7 @@ public class Main {
 
     private static ArrayList<Building> initiate_search(User userprofile, schoolMap campusMap) throws IOException, InterruptedException {
         String checkLocation = new String();
+        //move to SearchUseCase
         List<String> validLocations = Arrays.asList("A1", "B1", "C1", "D1", "E1", "F1",
                 "A2", "B2", "C2", "D2", "E2", "F2",
                 "A3", "B3", "C3", "D3", "E3", "F3",
@@ -90,6 +90,7 @@ public class Main {
     }
 
     public static Building get_preferred_building(ArrayList<Building> buildingList){
+        //move to BuildingUseCase
         Building preferred_building = buildingList.get(0);
         buildingList.remove(0);
         return preferred_building;
@@ -100,6 +101,7 @@ public class Main {
         Review review = UIController.getThemToReview(buildingToReview);
         NewReviewRequest newReviewRequest = new NewReviewRequest(user_Profile.getStudentNumber(), review,
                 buildingToReview);
+        //move out to a usecase
         //todo whatever we do when a request is made to then implement said request idk exactly what.
     }
 

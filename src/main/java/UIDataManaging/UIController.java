@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import Entities.*;
 import Requests.*;
-import Mapping.*;
 
 
 public class UIController {

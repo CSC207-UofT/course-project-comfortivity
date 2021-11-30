@@ -1,14 +1,10 @@
-package Mapping;
-import java.util.Map;
-import java.util.List;
+package Entities;
 import java.util.HashMap;
 import java.util.ArrayList;
-import Entities.*;
+
 import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
-import Interfaces.*;
-import Mapping.*;
+
+//move to entities package
 public class schoolMap extends HashMap{
 
 

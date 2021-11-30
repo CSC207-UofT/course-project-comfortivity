@@ -1,15 +1,7 @@
 package UIDataManaging;
-import java.util.Map;
-import java.util.List;
-import java.util.HashMap;
 import java.util.ArrayList;
 import Entities.*;
-import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
-import Interfaces.*;
 import Entities.User;
-import com.mongodb.*;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -19,7 +11,6 @@ import com.mongodb.client.model.ReplaceOptions;
 import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
-import Mapping.*;
 import org.bson.conversions.Bson;
 import static com.mongodb.client.model.Filters.eq;
 
