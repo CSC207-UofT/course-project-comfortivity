@@ -4,7 +4,7 @@ import UIDataManaging.*;
 import Requests.*;
 import UseCases.*;
 import Interfaces.*;
-import Mapping.*;
+
 public class NewReviewRequest implements RequestInterface{
     //Todo I just made these public so it would compile. Maybe make them private and make getters instead?
     public int student_id;

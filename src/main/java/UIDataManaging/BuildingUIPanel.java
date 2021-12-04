@@ -5,7 +5,7 @@ import UIDataManaging.*;
 import Requests.*;
 import UseCases.*;
 import Interfaces.*;
-import Mapping.*;
+
 
 
 public class BuildingUIPanel extends JPanel {
