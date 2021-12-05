@@ -4,7 +4,7 @@ import Entities.Building;
 
 public class BuildingUseCase {
 
-    public static Building loadBuilding() {
+    public static Building loadBuilding(Building building) {
         return new Building();
     }
 

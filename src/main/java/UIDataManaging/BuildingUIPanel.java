@@ -14,7 +14,7 @@ public class BuildingUIPanel extends JPanel {
         super();
         JLabel nameLabel = new JLabel(building.getName());
         JLabel addressLabel = new JLabel(building.getAddress());
-        JLabel starLabel = new JLabel("       " + building.getStarRating() + " stars");
+        JLabel starLabel = new JLabel("       " + building.getStar_rating() + " stars");
         //TODO this and put it into the panel
         // JLabel reviewLabel = new JLabel(building.getTopReview());
         JPanel upperPanel = new JPanel();
