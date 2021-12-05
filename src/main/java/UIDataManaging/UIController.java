@@ -1,11 +1,18 @@
 package UIDataManaging;
 
+import Entities.Building;
+import Entities.Review;
+import Entities.User;
+import Entities.schoolMap;
+import Requests.NewReviewRequest;
+import Requests.NewUserRequest;
+import Requests.RetrieveProfileRequest;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-import Entities.*;
-import Requests.*;
+
 
 
 public class UIController {

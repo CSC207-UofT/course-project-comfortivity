@@ -10,11 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
-import Entities.*;
-import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
-import Interfaces.*;
+
 
 public class PromptActionListener extends Observable implements ActionListener {
     JButton confirmButton;

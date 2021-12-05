@@ -1,10 +1,9 @@
 package Entities;
+import Interfaces.Buildable;
+import UIDataManaging.DataManager;
+
 import java.util.*;
-import Interfaces.*;
-import Entities.*;
-import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
+
 
 public class Building implements Buildable {
     private String name;
@@ -15,8 +14,8 @@ public class Building implements Buildable {
 //TODO can we implement a getTopReview() method?
 
     public static Collection<Building> load_buildings() {
-        DataManager dm = new DataManager();
-        Collection<Building> bldgs_to_return = dm.buildingReturn();
+
+        Collection<Building> bldgs_to_return = DataManager.buildingReturn();
         return bldgs_to_return;
         // Eventually it'll involve something like this, for now I'll just be like
 

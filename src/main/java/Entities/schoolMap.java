@@ -2,7 +2,7 @@ package Entities;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-import UIDataManaging.*;
+
 
 import static com.mongodb.client.model.Filters.lt;
 import org.bson.Document;
@@ -73,9 +73,7 @@ public class schoolMap extends HashMap{
                 buildings.add((Building) building);
             }
         }
-    if(buildings.size() == 0){
-        return Main.getListContainingEmptyBuilding();
-    }
+
     return buildings;
     }
 }

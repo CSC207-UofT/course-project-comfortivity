@@ -1,11 +1,11 @@
 package Requests;
-import Entities.*;
-import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
-import Interfaces.*;
 
-public class NewReviewRequest implements RequestInterface{
+
+import Entities.Building;
+import Entities.Review;
+import Interfaces.RequestInterface;
+
+public class NewReviewRequest implements RequestInterface {
     //Todo I just made these public so it would compile. Maybe make them private and make getters instead?
     public int student_id;
     public Review review;

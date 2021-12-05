@@ -1,12 +1,10 @@
 package UIDataManaging;
 
+import Entities.Building;
+
 import javax.swing.*;
 import java.util.ArrayList;
-import Entities.*;
-import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
-import Interfaces.*;
+
 
 public class SearchResultUIFrame extends JFrame {
 

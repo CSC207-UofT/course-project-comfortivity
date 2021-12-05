@@ -7,7 +7,7 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.HashMap;
 
-import Entities.*;
+
 
 public class PreferenceActionListener implements ActionListener {
     JButton confirmButton;

@@ -79,6 +79,9 @@ public class GUI  {
     public static void displaySearchResultFrame(ArrayList<Building> buildings) {
         SearchResultUIFrame searchResultFrame = new SearchResultUIFrame(buildings);
         searchResultFrame.setVisible(true);
+
+
+
     }
 
     public static Review getThemToReview(Building building) throws InterruptedException, IOException {
