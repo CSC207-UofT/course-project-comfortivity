@@ -16,6 +16,7 @@ public class Building {
     private boolean water;
     private boolean food;
     private boolean accessibility;
+    private ArrayList<Review> reviews;
 
     public Building() {
         this.code = "";
