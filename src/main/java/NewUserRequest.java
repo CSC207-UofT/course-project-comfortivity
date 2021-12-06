@@ -1,3 +1,4 @@
+import Interfaces.InterfaceRequest;
 
 public class NewUserRequest implements InterfaceRequest {
     int student_id;

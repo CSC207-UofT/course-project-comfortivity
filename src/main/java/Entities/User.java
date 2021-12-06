@@ -14,13 +14,17 @@ public class User {
         this.name = name;
         this.studentNumber = studentNumber;
         this.location = "";
-        this.reviews = new HashMap<>();
-        this.preferences = new HashMap<>();
+        this.reviews = new HashMap<Building, String>();
+        this.preferences = new HashMap<String, Boolean>();
     }
 
 
     public void setStudentNumber(int studentNum){
         this.studentNumber = studentNum;
+    }
+
+    public String getlocation(){
+        return this.location;
     }
 
     public void setName(String name){

@@ -2,7 +2,7 @@ package Requests;
 import Entities.*;
 import Interfaces.*;
 
-public class SearchRequest implements RequestInterface{
+public class SearchRequest implements InterfaceRequest{
     public User userProfile;
     public int filterDistance;
     public schoolMap campusMap;

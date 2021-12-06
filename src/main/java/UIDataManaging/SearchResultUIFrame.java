@@ -11,7 +11,7 @@ import Mapping.*;
 public class SearchResultUIFrame extends JFrame {
 
     public SearchResultUIFrame(ArrayList<Building> buildings){
-        super("Search Results");
+        super("UseCases.Search Results");
         JPanel ourPanel = new JPanel();
         for (Building building : buildings) {
             JPanel newPanel = new BuildingUIPanel(building);

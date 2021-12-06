@@ -1,42 +1,88 @@
 package UseCases;
-import java.util.Collection;
+
+import Entities.Building;
+import Entities.User;
+import Interfaces.InterfaceRequest;
+import UseCases.UserUseCase;
+
 import java.util.ArrayList;
-import Entities.*;
-import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
-import Interfaces.*;
-import Mapping.*;
-public class SearchUseCase{
-    String building;
-    String user;
-    String map;
-    
-    public SearchUseCase(String building, String user, String map) {
-        this.building = building;
-        this.user = user;
-        this.map = map;
-    }
-    
-    public static ArrayList<Building> search(SearchRequest req) {
-        // Take the searchRequest and filter the given list of buildings based on how far they are from the User specified in the request. If they
-        // are further than the filter distance provided, they are removed from the list. Return the new list.
-        // Note that this implementation is static and does not use the actual instance variables of SearchUseCase. In a later implementation, we may change this
-        // to specify the user location or for other reasons that makes the code more consistent.
-        // THIS IS TEMPORARY.
-        ArrayList<Building> filteredBuildings = new ArrayList<Building>();
-        return filteredBuildings;
+
+public class SearchUseCase {
+    public InterfaceRequest SearchRequest;
+    public ArrayList<Building> buildings;
+
+    public float building_points(Building building, User user, Float filterDistance) {
+        int count = 0;
+        if (user.getPreferences().get("Group")) {
+            if (building.isGroup()) {
+                count += 1;
+            }
+        }
+        if (user.getPreferences().get("Food")){
+            if (building.isFood()){
+                count += 1;
+            }
+        }
+        if (user.getPreferences().get("Privacy")){
+            if(building.isIndividual()){
+                count += 1;
+            }
+        }
+        if (user.getPreferences().get("Bathroom")){
+            if(building.isBathrooms()){
+                count += 1;
+            }
+        }
+        if (user.getPreferences().get("Water")){
+            if(building.isWater()){
+                count +=1;
+            }
+        }
+        if (user.getPreferences().get("Accessibility")){
+            if(building.isAccessibility()){
+                count += 1;
+            }
+        }
+        if (UserUseCase.findDistance(user.getlocation(), building) <= 25/100 * filterDistance) {
+            count += 1;
+        }
+        if (UserUseCase.findDistance(user.getlocation(), building) <= 50/100 * filterDistance) {
+            count += 1;
+        }
+        if (UserUseCase.findDistance(user.getlocation(), building) <= 75/100 * filterDistance) {
+            count += 1;
+        }
+        if (UserUseCase.findDistance(user.getlocation(), building) <= filterDistance) {
+            count += 1;
+        }
+        return count / 10 * 100;
+
     }
 
-    public String getBuilding() {
-        return this.building;
+    public void orderArrays(ArrayList<Building> ordered_buildings, ArrayList<Float> ordered_points, Building building,
+                            Float point){
+        int index = 0;
+        if (ordered_buildings.size() == 0){
+            ordered_buildings.add(building);
+            ordered_points.add(point);
+        }else {
+            for (Float sel_point:ordered_points){
+                if (point <= sel_point){
+                    ordered_buildings.add(index, building);
+                    ordered_points.add(index, point);
+                }
+            }
+        }
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public String getMap() {
-        return map;
+    public ArrayList<Building> search(User user, float filterDistance){
+        ArrayList<Building> ordered_buildings = new ArrayList<>();
+        ArrayList<Float> ordered_points = new ArrayList<>();
+        for (Building building: buildings){
+            float point = building_points(building, user, filterDistance);
+            orderArrays(ordered_buildings, ordered_points, building, point);
+        }
+        return ordered_buildings;
     }
 }
+
