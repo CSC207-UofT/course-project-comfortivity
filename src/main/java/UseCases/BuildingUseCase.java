@@ -23,18 +23,6 @@ public class BuildingUseCase {
         return bdi.retrieveBuildingInfo(code);
     }
 
-    public static int findDistance(Building startBuilding, Building endBuilding) {
-        // convert alphanumeric locations to two digits by assigning numeric value to letter
-        // for example "D5" becomes 4 and 5
-        // subtract sum of endBuilding from sum of startBuilding
-        // return the absolute value as distance
-        int a = startBuilding.getCode().charAt(0) - 64;
-        int b = startBuilding.getCode().charAt(1);
-        int c = endBuilding.getCode().charAt(0) - 64;
-        int d = endBuilding.getCode().charAt(1);
-        return Math.abs((a + b) - (c + d));
-    }
-
     public static void loadAllBuildings() {
 
     }

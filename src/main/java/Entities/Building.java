@@ -21,7 +21,7 @@ public class Building {
 
 //TODO can we implement a getTopReview() method?
 
-//    public static Collection<Building> load_buildings() {
+    //    public static Collection<Building> load_buildings() {
 //        DataManager dm = new DataManager();
 //        Collection<Building> bldgs_to_return = dm.buildingReturn();
 //        return bldgs_to_return;

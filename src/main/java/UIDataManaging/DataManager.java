@@ -1,7 +1,10 @@
 package UIDataManaging;
 import java.util.ArrayList;
-import Entities.*;
+
+import Entities.Building;
+import Entities.Review;
 import Entities.User;
+import Entities.schoolMap;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;

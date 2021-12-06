@@ -6,7 +6,6 @@ public class Review {
     public Review(int rate, String comment) {
         this.rating = rate;
         this.comment = comment;
-        
     }
 
     public int getRating() {
