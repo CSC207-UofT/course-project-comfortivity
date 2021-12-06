@@ -7,6 +7,7 @@ import Entities.schoolMap;
 import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;
 import Requests.SearchRequest;
+import UseCases.BuildingUseCase;
 import UseCases.SearchUseCase;
 
 import java.io.IOException;
@@ -48,7 +49,6 @@ public class DialogueController {
      */
     {
         String checkLocation = new String();
-        //move to SearchUseCase
         List<String> validLocations = Arrays.asList("A1", "B1", "C1", "D1", "E1", "F1",
                 "A2", "B2", "C2", "D2", "E2", "F2",
                 "A3", "B3", "C3", "D3", "E3", "F3",
@@ -61,8 +61,7 @@ public class DialogueController {
 
         userprofile.setLocation(checkLocation);
         userprofile.setPreferences(UIController.askForPreferences());
-        Scanner sc = new Scanner(System.in);
-        String activity = UIController.askTheUser("What's your next main activity. study chill or eat");
+        // String activity = UIController.askTheUser("What's your next main activity. study chill or eat");
 
 
         int search_radius = Integer.valueOf(UIController.askTheUser("What search radius would you want"));
@@ -103,7 +102,7 @@ public class DialogueController {
      * starts to guide the user through the review process
      */
     {
-        Building buildingToReview = UIController.getBuildingToReview(campusMap);
+        Building buildingToReview = BuildingUseCase.getBuildingToReview(campusMap);
         Review review = UIController.getThemToReview(buildingToReview);
         DataManager.updateNewReview(userProfile.getStudentNumber(), review, buildingToReview);
     }
