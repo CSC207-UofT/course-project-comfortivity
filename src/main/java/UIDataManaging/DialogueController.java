@@ -18,7 +18,11 @@ import java.util.Scanner;
 public class DialogueController {
 
 
-    public static User beginLoginSequence() throws IOException, InterruptedException {
+    public static User beginLoginSequence() throws IOException, InterruptedException
+    /**
+     * walks the user through the process of making their account or logging into it
+     */
+    {
 
         String ans1 = UIController.askTheUser("Do you have an account? Y/N");
         //reads string
@@ -38,7 +42,11 @@ public class DialogueController {
     }
 
 
-    private static ArrayList<Building> initiate_search(User userprofile, schoolMap campusMap) throws IOException, InterruptedException {
+    private static ArrayList<Building> initiate_search(User userprofile, schoolMap campusMap) throws IOException, InterruptedException
+    /**
+     * starts to guide the user through the search function, asking the requisite questions, etc
+     */
+    {
         String checkLocation = new String();
         //move to SearchUseCase
         List<String> validLocations = Arrays.asList("A1", "B1", "C1", "D1", "E1", "F1",
@@ -66,7 +74,11 @@ public class DialogueController {
 // initiate search, get filters
     }
 
-    public static void takeUserOrders(User userProfile, schoolMap campusMap) throws IOException, InterruptedException {
+    public static void takeUserOrders(User userProfile, schoolMap campusMap) throws IOException, InterruptedException
+    /**
+     * asks the user whether they want to search or review, then does that
+     */
+    {
 
         String user_choice = UIController.askTheUser("What would you like to do next? Type SEARCH or REVIEW");
         if (user_choice.equals("SEARCH")) {
@@ -86,13 +98,21 @@ public class DialogueController {
 
     }
 
-    private static void initiate_review(User userProfile, schoolMap campusMap) throws IOException, InterruptedException {
+    private static void initiate_review(User userProfile, schoolMap campusMap) throws IOException, InterruptedException
+    /**
+     * starts to guide the user through the review process
+     */
+    {
         Building buildingToReview = UIController.getBuildingToReview(campusMap);
         Review review = UIController.getThemToReview(buildingToReview);
         DataManager.updateNewReview(userProfile.getStudentNumber(), review, buildingToReview);
     }
 
-    private static User newProfile() throws IOException, InterruptedException {
+    private static User newProfile() throws IOException, InterruptedException
+    /**
+     * guides the user through making a profile
+     */
+    {
         //move to UserUseCase
         int student_number = Integer.valueOf(UIController.askTheUser("What's your student number"));//reads input
         String name = UIController.askTheUser("What's your Full Name");
@@ -103,7 +123,11 @@ public class DialogueController {
     }
 
 
-    private static User retrieveProfile() throws IOException, InterruptedException {
+    private static User retrieveProfile() throws IOException, InterruptedException
+    /**
+     * walks the user through logging in
+     */
+    {
         Scanner sc = new Scanner(System.in);
         // move to UserUseCase
         int student_number= Integer.valueOf(UIController.askTheUser("What's your student number"));
