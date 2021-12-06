@@ -44,6 +44,9 @@ public class BuildingUseCase {
                 return building;
             }
         }
+        if (buildings.size() == 0){
+            return new Building();
+        }
         answer = GUI.genericPromptUserResponse("Not found. Try again. Some available buildings are " + buildings.get(0).getName());
         for(Building building : buildings){
             if(building.getName() == answer){
