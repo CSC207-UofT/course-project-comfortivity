@@ -15,7 +15,7 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Projections;
 import com.mongodb.client.model.Sorts;
 
-//move to entities package
+//move to gateway package
 public class schoolMap extends HashMap{
 
 

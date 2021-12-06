@@ -13,7 +13,6 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 
-import java.util.Arrays;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -53,7 +52,7 @@ public class UserGateway implements UserDataInterface {
             if (doc == null) {
                 System.out.println("sorry user not found");
             } else {
-                
+
             }
         }
     }

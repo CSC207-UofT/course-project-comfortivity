@@ -1,11 +1,8 @@
 package UIDataManaging;
 
-import java.util.Arrays;
 
 import org.bson.Document;
-import org.bson.types.ObjectId;
 
-import Entities.User;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -14,7 +11,6 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.result.InsertOneResult;
 
 
-import java.net.UnknownHostException;
 
 public class MongoDB {
     public static void main(String[] args) {

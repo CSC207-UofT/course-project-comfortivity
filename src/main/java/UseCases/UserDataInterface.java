@@ -1,6 +1,5 @@
 package UseCases;
 
-import Entities.User;
 
 public interface UserDataInterface {
 
