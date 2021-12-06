@@ -1,11 +1,6 @@
 package Requests;
-import Entities.*;
-import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
 import Interfaces.*;
-import Interfaces.*;
-import Mapping.*;
+
 
 public class NewUserRequest implements InterfaceRequest {
     public int student_id;

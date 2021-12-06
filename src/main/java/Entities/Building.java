@@ -5,7 +5,7 @@ import Entities.*;
 import UIDataManaging.*;
 import Requests.*;
 import UseCases.*;
-import Mapping.*;
+
 public class Building implements Buildable {
     private String name;
     private String address;

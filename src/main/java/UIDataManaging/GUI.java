@@ -17,7 +17,7 @@ import UIDataManaging.*;
 import Requests.*;
 import UseCases.*;
 import Interfaces.*;
-import Mapping.*;
+
 public class GUI  {
 
    /** public static void main(String args[]) throws IOException, InterruptedException {

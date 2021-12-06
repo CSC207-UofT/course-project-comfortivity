@@ -14,7 +14,7 @@ import UIDataManaging.*;
 import Requests.*;
 import UseCases.*;
 import Interfaces.*;
-import Mapping.*;
+
 
 public class LocationActionListener extends Observable implements ActionListener {
     JButton button;

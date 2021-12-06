@@ -60,7 +60,7 @@ public class Main {
         }
 
 
-        userprofile.setLocation(checkLocation);
+        userprofile.setCurrLocation(checkLocation);
         userprofile.setPreferences(UIController.askForPreferences());
         Scanner sc = new Scanner(System.in);
         String activity = UIController.askTheUser("What's your next main activity. study chill or eat");
@@ -99,7 +99,7 @@ public class Main {
     private static void initiate_review(User userProfile, schoolMap campusMap) throws IOException, InterruptedException {
         Building buildingToReview = UIController.getBuildingToReview(campusMap);
         Review review = UIController.getThemToReview(buildingToReview);
-        NewReviewRequest newReviewRequest = new NewReviewRequest(user_Profile.getStudentNumber(), review,
+        NewReviewRequests newReviewRequest = new NewReviewRequests(user_Profile.getStudentNumber(), review,
                 buildingToReview);
         //move out to a usecase
         //todo whatever we do when a request is made to then implement said request idk exactly what.

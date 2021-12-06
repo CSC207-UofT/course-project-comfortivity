@@ -59,7 +59,7 @@ public class SearchUseCase {
 
     }
 
-    public void orderArrays(ArrayList<Building> ordered_buildings, ArrayList<Float> ordered_points, Building building,
+    public void arrangeArrays(ArrayList<Building> ordered_buildings, ArrayList<Float> ordered_points, Building building,
                             Float point){
         int index = 0;
         if (ordered_buildings.size() == 0){
@@ -80,7 +80,7 @@ public class SearchUseCase {
         ArrayList<Float> ordered_points = new ArrayList<>();
         for (Building building: buildings){
             float point = building_points(building, user, filterDistance);
-            orderArrays(ordered_buildings, ordered_points, building, point);
+            arrangeArrays(ordered_buildings, ordered_points, building, point);
         }
         return ordered_buildings;
     }

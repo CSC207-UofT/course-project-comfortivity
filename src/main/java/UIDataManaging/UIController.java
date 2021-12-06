@@ -21,7 +21,7 @@ public class UIController {
     public static void welcomingFinished() {
 
     }
-    public static void processRequest(NewReviewRequest req) {
+    public static void processRequest(NewReviewRequests req) {
         DataManager.updateNewReview(req.student_id, req.review, req.revbuilding);
     }
 
