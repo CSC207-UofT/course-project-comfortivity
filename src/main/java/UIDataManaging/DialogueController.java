@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class DialogueController {
 
@@ -81,7 +80,7 @@ public class DialogueController {
 
         String user_choice = UIController.askTheUser("What would you like to do next? Type SEARCH or REVIEW");
         if (user_choice.equals("SEARCH")) {
-            ArrayList<Building> building_selections = (ArrayList<Building>) initiate_search(userProfile, campusMap);
+            ArrayList<Building> building_selections = initiate_search(userProfile, campusMap);
             if (building_selections.size() == 0 ){
                 UIController.askTheUser("No results found.");
 
@@ -90,6 +89,7 @@ public class DialogueController {
             //Fully implement according to the above this is skeleton
         } else if (user_choice.equals("REVIEW")) {
             initiate_review(userProfile, campusMap);
+
 
         } else {
             takeUserOrders(userProfile, campusMap);
@@ -127,7 +127,7 @@ public class DialogueController {
      * walks the user through logging in
      */
     {
-        Scanner sc = new Scanner(System.in);
+
         // move to UserUseCase
         int student_number= Integer.valueOf(UIController.askTheUser("What's your student number"));
         RetrieveProfileRequest retrieveProfileRequest = new RetrieveProfileRequest(student_number);
