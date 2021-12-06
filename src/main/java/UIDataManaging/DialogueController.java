@@ -7,13 +7,13 @@ import Entities.schoolMap;
 import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;
 import Requests.SearchRequest;
+import UseCases.BuildingUseCase;
 import UseCases.SearchUseCase;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class DialogueController {
 
@@ -48,7 +48,6 @@ public class DialogueController {
      */
     {
         String checkLocation = new String();
-        //move to SearchUseCase
         List<String> validLocations = Arrays.asList("A1", "B1", "C1", "D1", "E1", "F1",
                 "A2", "B2", "C2", "D2", "E2", "F2",
                 "A3", "B3", "C3", "D3", "E3", "F3",
@@ -61,8 +60,7 @@ public class DialogueController {
 
         userprofile.setLocation(checkLocation);
         userprofile.setPreferences(UIController.askForPreferences());
-        Scanner sc = new Scanner(System.in);
-        String activity = UIController.askTheUser("What's your next main activity. study chill or eat");
+        // String activity = UIController.askTheUser("What's your next main activity. study chill or eat");
 
 
         int search_radius = Integer.valueOf(UIController.askTheUser("What search radius would you want"));
@@ -82,7 +80,7 @@ public class DialogueController {
 
         String user_choice = UIController.askTheUser("What would you like to do next? Type SEARCH or REVIEW");
         if (user_choice.equals("SEARCH")) {
-            ArrayList<Building> building_selections = (ArrayList<Building>) initiate_search(userProfile, campusMap);
+            ArrayList<Building> building_selections = initiate_search(userProfile, campusMap);
             if (building_selections.size() == 0 ){
                 UIController.askTheUser("No results found.");
 
@@ -91,6 +89,7 @@ public class DialogueController {
             //Fully implement according to the above this is skeleton
         } else if (user_choice.equals("REVIEW")) {
             initiate_review(userProfile, campusMap);
+
 
         } else {
             takeUserOrders(userProfile, campusMap);
@@ -103,7 +102,7 @@ public class DialogueController {
      * starts to guide the user through the review process
      */
     {
-        Building buildingToReview = UIController.getBuildingToReview(campusMap);
+        Building buildingToReview = BuildingUseCase.getBuildingToReview(campusMap);
         Review review = UIController.getThemToReview(buildingToReview);
         DataManager.updateNewReview(userProfile.getStudentNumber(), review, buildingToReview);
     }
@@ -128,7 +127,7 @@ public class DialogueController {
      * walks the user through logging in
      */
     {
-        Scanner sc = new Scanner(System.in);
+
         // move to UserUseCase
         int student_number= Integer.valueOf(UIController.askTheUser("What's your student number"));
         RetrieveProfileRequest retrieveProfileRequest = new RetrieveProfileRequest(student_number);

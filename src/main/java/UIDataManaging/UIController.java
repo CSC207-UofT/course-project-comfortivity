@@ -58,27 +58,7 @@ public class UIController {
 
         GUI.displaySearchResultFrame(buildings);
     }
-    public static Building getBuildingToReview(schoolMap campusMap) throws IOException, InterruptedException
-    /**
-    asks the user which building they want to review, checks if it exists, asks again/recurses if it doesn't
-     */
-    {
-        String answer = askTheUser("Which building do you want to review?");
-        ArrayList<Building> buildings = campusMap.getAllBuildings();
-        for(Building building : buildings){
-            if(building.getName() == answer){
-                return building;
-            }
-        }
-        answer = askTheUser("Not found. Try again. Some available buildings are " + buildings.get(0).getName());
-        for(Building building : buildings){
-            if(building.getName() == answer){
-                return building;
-            }
-        }
-        return getBuildingToReview(campusMap);
 
-    }
     public static User processRequest(RetrieveProfileRequest req)
     /**
     asks the datamanager to return the profile for the given student id
