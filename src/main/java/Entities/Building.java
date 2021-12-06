@@ -10,8 +10,9 @@ public class Building implements Buildable {
     private String address;
     private int star_rating;
     private boolean bathrooms;
+    private ArrayList<Review> reviews;
 
-//TODO can we implement a getTopReview() method?
+
 
     public static Collection<Building> load_buildings() {
 
@@ -28,6 +29,7 @@ public class Building implements Buildable {
         this.address = "";
         this.star_rating = 0;
         this.bathrooms = false;
+        this.reviews = new ArrayList<Review>();
 
     }
 
@@ -70,6 +72,19 @@ public class Building implements Buildable {
         return attributes;
 
 
+    }
+
+    public void addReview(Review review){
+        this.reviews.add(review);
+    }
+
+    public Review getTopReview(){
+        if(this.reviews.size() > 0){
+            return this.reviews.get(0);
+        }
+        else {
+            return new Review(0, "No reviews yet");
+        }
     }
 
 }
