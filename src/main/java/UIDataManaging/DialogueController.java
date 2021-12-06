@@ -3,7 +3,7 @@ package UIDataManaging;
 import Entities.Building;
 import Entities.Review;
 import Entities.User;
-import Entities.schoolMap;
+import Gateways.schoolMap;
 import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;
 import Requests.SearchRequest;

@@ -5,7 +5,7 @@ import java.util.*;
 
 import Entities.User;
 import Entities.Building;
-import Entities.schoolMap;
+import Gateways.schoolMap;
 import UseCases.MapUseCase;
 
 public class Main {

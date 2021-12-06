@@ -3,7 +3,6 @@ package UIDataManaging;
 import Entities.Building;
 import Entities.Review;
 import Entities.User;
-import Entities.schoolMap;
 import Requests.NewReviewRequest;
 import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;

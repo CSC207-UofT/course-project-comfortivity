@@ -1,13 +1,11 @@
 package UseCases;
 
 import Entities.Building;
-import Entities.schoolMap;
+import Gateways.schoolMap;
 import UIDataManaging.GUI;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import java.util.List;
 
 public class BuildingUseCase {
 

@@ -2,7 +2,7 @@ package Requests;
 
 
 import Entities.User;
-import Entities.schoolMap;
+import Gateways.schoolMap;
 import Interfaces.RequestInterface;
 
 public class SearchRequest implements RequestInterface {

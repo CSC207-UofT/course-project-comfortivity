@@ -1,11 +1,7 @@
 package UseCases;
 
-import Entities.Building;
-import Entities.schoolMap;
+import Gateways.schoolMap;
 import UIDataManaging.DataManager;
-import UIDataManaging.UIController;
-
-import java.util.ArrayList;
 
 public class MapUseCase {
 
