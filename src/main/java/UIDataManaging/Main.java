@@ -83,7 +83,7 @@ public class Main {
          * return a list containing just a building object that explains that no buildings were found with the right
          * criteria for the search
          */
-        Building emptyBuilding = new Building("no building found", "none match specifications");
+        Building emptyBuilding = new Building();
         ArrayList<Building> listContainingEmptyBuilding = new ArrayList<Building>();
         listContainingEmptyBuilding.add(emptyBuilding);
         return listContainingEmptyBuilding;
