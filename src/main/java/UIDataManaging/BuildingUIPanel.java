@@ -12,7 +12,7 @@ public class BuildingUIPanel extends JPanel {
         super();
         JLabel nameLabel = new JLabel(building.getName());
         JLabel addressLabel = new JLabel(building.getAddress());
-        JLabel starLabel = new JLabel("       " + building.getStarRating() + " stars");
+        JLabel starLabel = new JLabel("       " + building.getStar_rating() + " stars");
 
         JLabel reviewLabel = new JLabel(building.getTopReview().getComment());
         JPanel upperPanel = new JPanel();

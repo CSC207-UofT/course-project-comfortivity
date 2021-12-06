@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 
 import static com.mongodb.client.model.Filters.lt;
+
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import com.mongodb.client.MongoClient;
@@ -19,7 +21,7 @@ import com.mongodb.client.model.Sorts;
 public class schoolMap extends HashMap{
 
 
-    public static void retrieveMap(){
+    public static schoolMap retrieveMapInfo(){
         // hardcoded for now, but in the future this will draw from data files i expect.
         schoolMap new_map = new schoolMap();
 //        new_map.put("A1", new ArrayList<Building>());
@@ -53,12 +55,28 @@ public class schoolMap extends HashMap{
 //        new_map.put("E5", new ArrayList<Building>());
 //        new_map.put("F5", new ArrayList<Building>());
         String uri = "mongodb+srv://Comfortivity:CSC207@cluster0.rgnj6.mongodb.net/comfortivity?retryWrites=true&w=majority";
-
-        try (MongoClient mongoClient = MongoClients.create(uri)) {
-            MongoDatabase database = mongoClient.getDatabase("comfortivity");
-            MongoCollection<Document> collection = database.getCollection("map");
-            Bson projectionFields = Projections.fields(Projections.include("title", "imdb"), Projections.excludeId());
+        String output = "";
+        for (char alphabet = 'A'; alphabet <= 'F'; alphabet++) {
+            for (int i = 1; i <= 5; i++) {
+                int code = alphabet + i;
+                try (MongoClient mongoClient = MongoClients.create(uri)) {
+                    MongoDatabase database = mongoClient.getDatabase("comfortivity");
+                    MongoCollection<Document> collection = database.getCollection("map");
+                    Bson projectionFields = Projections.fields(Projections.include("location"), Projections.excludeId());
+                    MongoCursor<Document> cursor = collection.find(Filters.eq("code", String.valueOf(code)))
+                            .projection(projectionFields)
+                            .sort(Sorts.descending("title")).iterator();
+                    try {
+                        while(cursor.hasNext()) {
+                            System.out.println(cursor.next().toJson());
+                        }
+                    } finally {
+                        cursor.close();
+                    }
+                }
+            }
         }
+        return new_map;
     }
 
     public void addBuilding(String coord, Building bldg){

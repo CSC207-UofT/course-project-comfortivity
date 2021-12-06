@@ -38,7 +38,7 @@ public class UserGateway implements UserDataInterface {
     }
 
     @Override
-    public void updateUserInfo(String name, int id) {
+    public void updateUserName(String name, int id) {
         User user = new User(name, id);
         String uri = "mongodb+srv://Comfortivity:CSC207@cluster0.rgnj6.mongodb.net/comfortivity?retryWrites=true&w=majority";
         try (MongoClient mongoClient = MongoClients.create(uri)) {
@@ -53,7 +53,7 @@ public class UserGateway implements UserDataInterface {
             if (doc == null) {
                 System.out.println("sorry user not found");
             } else {
-
+                
             }
         }
     }

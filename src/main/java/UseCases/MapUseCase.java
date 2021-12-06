@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class MapUseCase {
 
     public static schoolMap loadMap() {
-        return new schoolMap();
+        return schoolMap.retrieveMapInfo();
     }
 
     public static schoolMap retrieveMap(){
