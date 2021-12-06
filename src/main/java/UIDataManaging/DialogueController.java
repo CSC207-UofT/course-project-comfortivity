@@ -4,7 +4,6 @@ import Entities.Building;
 import Entities.Review;
 import Entities.User;
 import Entities.schoolMap;
-import Requests.NewReviewRequest;
 import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;
 import Requests.SearchRequest;
@@ -24,19 +23,17 @@ public class DialogueController {
         String ans1 = UIController.askTheUser("Do you have an account? Y/N");
         //reads string
         if (ans1.equals("N")) {
-            return newprofile();
+            return newProfile();
 
         } else if (ans1.equals("Y")) {
-            User userinfo = retrieveprofile();
-            return userinfo;
+            return retrieveProfile();
         } else {
-            UIController.askTheUser("Please type Y or N");
+            ans1 = UIController.askTheUser("Please type Y or N");
             if (ans1.equals("N")) {
-                return newprofile();
+                return newProfile();
 
             } else {
-                User userinfo = retrieveprofile();
-                return userinfo;
+                return retrieveProfile();
             }}
     }
 
@@ -63,9 +60,8 @@ public class DialogueController {
         int search_radius = Integer.valueOf(UIController.askTheUser("What search radius would you want"));
         SearchRequest searchRequest = new SearchRequest(userprofile,
                 search_radius, campusMap);
-        ArrayList<Building> preference_building_list = SearchUseCase.search(searchRequest);
+        return SearchUseCase.search(searchRequest);
 
-        return preference_building_list;
 
 // initiate search, get filters
     }
@@ -73,7 +69,7 @@ public class DialogueController {
     public static void takeUserOrders(User userProfile, schoolMap campusMap) throws IOException, InterruptedException {
 
         String user_choice = UIController.askTheUser("What would you like to do next? Type SEARCH or REVIEW");
-        if (user_choice == "SEARCH") {
+        if (user_choice.equals("SEARCH")) {
             ArrayList<Building> building_selections = (ArrayList<Building>) initiate_search(userProfile, campusMap);
             if (building_selections.size() == 0 ){
                 UIController.askTheUser("No results found.");
@@ -81,7 +77,7 @@ public class DialogueController {
             }
             UIController.displaySearchResultFrame(building_selections);
             //Fully implement according to the above this is skeleton
-        } else if (user_choice == "REVIEW") {
+        } else if (user_choice.equals("REVIEW")) {
             initiate_review(userProfile, campusMap);
 
         } else {
@@ -93,15 +89,11 @@ public class DialogueController {
     private static void initiate_review(User userProfile, schoolMap campusMap) throws IOException, InterruptedException {
         Building buildingToReview = UIController.getBuildingToReview(campusMap);
         Review review = UIController.getThemToReview(buildingToReview);
-        NewReviewRequest newReviewRequest = new NewReviewRequest(userProfile.getStudentNumber(), review,
-                buildingToReview);
-        //move out to a usecase
-        //todo MAKE THIS THEN ADD THE REQUEST TO THE STUFF
+        DataManager.updateNewReview(userProfile.getStudentNumber(), review, buildingToReview);
     }
 
-    private static User newprofile() throws IOException, InterruptedException {
+    private static User newProfile() throws IOException, InterruptedException {
         //move to UserUseCase
-        Scanner sc= new Scanner(System.in); //System.in is a standard input stream
         int student_number = Integer.valueOf(UIController.askTheUser("What's your student number"));//reads input
         String name = UIController.askTheUser("What's your Full Name");
         NewUserRequest UserRequestToPass = new NewUserRequest(student_number, name);
@@ -111,7 +103,7 @@ public class DialogueController {
     }
 
 
-    private static User retrieveprofile() throws IOException, InterruptedException {
+    private static User retrieveProfile() throws IOException, InterruptedException {
         Scanner sc = new Scanner(System.in);
         // move to UserUseCase
         int student_number= Integer.valueOf(UIController.askTheUser("What's your student number"));
