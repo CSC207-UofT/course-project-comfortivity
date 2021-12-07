@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import static com.mongodb.client.model.Filters.eq;
 
 import Entities.Building;
+import UseCases.BuildingDataInterface;
+import UseCases.BuildingUseCase;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import com.mongodb.client.MongoClient;
