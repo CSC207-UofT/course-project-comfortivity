@@ -3,7 +3,7 @@ package UIDataManaging;
 import Entities.Building;
 import Entities.Review;
 import Entities.User;
-import Requests.NewReviewRequest;
+import Requests.NewReviewRequests;
 import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;
 
@@ -33,7 +33,7 @@ public class UIController {
     }
 
 
-    public static void processRequest(NewReviewRequest req)
+    public static void processRequest(NewReviewRequests req)
     /**
      * processes a newuser request in the datamanager (makes a user, i mean)
      */

@@ -1,9 +1,9 @@
 package Requests;
 
 
-import Interfaces.RequestInterface;
+import Interfaces.InterfaceRequest;
 
-public class RetrieveProfileRequest implements RequestInterface {
+public class RetrieveProfileRequest implements InterfaceRequest {
     public int student_id;
     //TODO i just made this public so it would compile. If you want we can make it private and use getters
 
