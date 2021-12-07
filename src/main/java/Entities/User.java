@@ -1,3 +1,7 @@
+package Entities;
+
+import Entities.Building;
+
 import java.util.HashMap;
 
 public class User {
@@ -51,13 +55,13 @@ public class User {
         this.reviews.put(key, review);
     }
 
+    public HashMap<String, Boolean> getPreferences(){return this.preferences;}
+
     public int getStudentNumber() {
         return this.studentNumber;
     }
 
-    public HashMap<String, Boolean> getPreferences(){
-        return this.preferences;
-    }
+
 
     public String getName(){
         return this.name;

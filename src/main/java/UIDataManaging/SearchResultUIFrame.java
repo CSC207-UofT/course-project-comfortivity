@@ -18,7 +18,7 @@ public class SearchResultUIFrame extends JFrame {
         ourPanel.setLayout(new BoxLayout(ourPanel, BoxLayout.Y_AXIS));
         this.add(ourPanel);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setSize(600,100 * buildings.size());
+        this.setSize(600,115 * buildings.size());
 
     }
 }

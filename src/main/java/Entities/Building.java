@@ -29,6 +29,7 @@ public class Building {
         this.water = false;
         this.food = false;
         this.accessibility = false;
+        this.reviews = new ArrayList<Review>();
     }
 
     public String getCode() {
