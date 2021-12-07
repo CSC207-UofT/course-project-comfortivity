@@ -1,11 +1,14 @@
 package UIDataManaging;
 
+import Entities.Building;
+import Entities.Review;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-import Entities.*;
+
 
 public class ReviewActionListener implements ActionListener {
     JButton confirmButton;

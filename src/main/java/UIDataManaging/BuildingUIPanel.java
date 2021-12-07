@@ -1,6 +1,8 @@
 package UIDataManaging;
+import Entities.Building;
+
 import javax.swing.*;
-import Entities.*;
+
 
 
 
@@ -10,17 +12,20 @@ public class BuildingUIPanel extends JPanel {
         super();
         JLabel nameLabel = new JLabel(building.getName());
         JLabel addressLabel = new JLabel(building.getAddress());
-        JLabel starLabel = new JLabel("       " + building.getStarRating() + " stars");
-        //TODO this and put it into the panel
-        // JLabel reviewLabel = new JLabel(building.getTopReview());
+        JLabel starLabel = new JLabel("       " + building.getStar_rating() + " stars");
+
+        JLabel reviewLabel = new JLabel(building.getTopReview().getComment());
         JPanel upperPanel = new JPanel();
         JPanel middlePanel = new JPanel();
+        JPanel lowerPanel = new JPanel();
         upperPanel.add(nameLabel);
         upperPanel.add(starLabel);
+        lowerPanel.add(reviewLabel);
         middlePanel.add(addressLabel);
         upperPanel.setLayout(new BoxLayout(upperPanel, BoxLayout.X_AXIS));
         this.add(upperPanel);
         this.add(middlePanel);
+        this.add(lowerPanel);
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 }

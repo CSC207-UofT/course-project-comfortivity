@@ -76,12 +76,23 @@ public class GUI  {
 
     }
 
-    public static void displaySearchResultFrame(ArrayList<Building> buildings) {
+    public static void displaySearchResultFrame(ArrayList<Building> buildings)
+    /**
+     * displays search results (the given arraylist of buildings) in a frame
+     */
+    {
         SearchResultUIFrame searchResultFrame = new SearchResultUIFrame(buildings);
         searchResultFrame.setVisible(true);
+
+
+
     }
 
-    public static Review getThemToReview(Building building) throws InterruptedException, IOException {
+    public static Review getThemToReview(Building building) throws InterruptedException, IOException
+    /**
+     * gets the user to review a given building. opens up the review window, basically
+     */
+    {
 
         ReviewActionListener reviewFrame = new ReviewActionListener(building);
         while(reviewFrame.reviewFrameStillOpen){
@@ -99,7 +110,11 @@ public class GUI  {
         return preferenceFrame.getPreferences();
     }
 
-    public static String promptTheirLocation() throws InterruptedException, IOException {
+    public static String promptTheirLocation() throws InterruptedException, IOException
+    /**
+     * displays the map and asks the user to describe their location using it
+     */
+    {
         LocationActionListener locationFrame = new LocationActionListener();
         while(locationFrame.locationFrameStillOpen){
             Thread.sleep(100);

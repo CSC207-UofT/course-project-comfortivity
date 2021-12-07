@@ -9,11 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
-import Entities.*;
-import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
-import Interfaces.*;
+
 
 public class StartScreenActionListener extends Observable implements ActionListener {
     JButton button;

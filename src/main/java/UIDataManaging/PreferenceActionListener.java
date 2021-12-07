@@ -7,13 +7,12 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.HashMap;
 
-import Entities.*;
+
 
 public class PreferenceActionListener implements ActionListener {
     JButton confirmButton;
     JFrame preferenceFrame;
     JCheckBox groupBox;
-    JCheckBox tablesBox;
     JCheckBox privacyBox;
     JCheckBox bathroomBox;
     JCheckBox waterBox;
@@ -23,12 +22,9 @@ public class PreferenceActionListener implements ActionListener {
 
     public PreferenceActionListener() throws IOException {
         /**
-         As you might guess, this method prompts a user response to the question prompt passed into it.
-         it returns the user's answer.
-         You can optionally pass in a param that is the length of answer the thing will accept
+         As you might guess, this method asks the user to select thier preferences for a search
          */
         this.groupBox = new JCheckBox("Group Study Space");
-        this.tablesBox = new JCheckBox("Tables");
         this.privacyBox = new JCheckBox("Private Study Space");
         this.bathroomBox = new JCheckBox("Bathrooms");
         this.waterBox = new JCheckBox("Water Fountains");
@@ -43,7 +39,7 @@ public class PreferenceActionListener implements ActionListener {
         this.confirmButton.addActionListener(this);
         higherPanel.add(promptLabel);
         middlePanel.add(this.groupBox);
-        middlePanel.add(this.tablesBox);
+        middlePanel.add(this.foodBox);
         middlePanel.add(this.privacyBox);
         middlePanel.add(this.bathroomBox);
         middlePanel.add(this.waterBox);
@@ -73,10 +69,14 @@ public class PreferenceActionListener implements ActionListener {
 
     }
 
-    public HashMap getPreferences(){
+    public HashMap getPreferences()
+    /**
+     * checks all the boxes
+     */
+    {
         HashMap preferences = new HashMap();
         preferences.put("Group", groupBox.isSelected());
-        preferences.put("Tables", tablesBox.isSelected());
+        preferences.put("Food", foodBox.isSelected());
         preferences.put("Privacy", privacyBox.isSelected());
         preferences.put("Bathroom", bathroomBox.isSelected());
         preferences.put("Water", waterBox.isSelected());
