@@ -66,7 +66,8 @@ public class DialogueController {
         int search_radius = Integer.valueOf(UIController.askTheUser("What search radius would you want"));
         SearchRequest searchRequest = new SearchRequest(userprofile,
                 search_radius, campusMap);
-        return SearchUseCase.search(searchRequest);
+
+        return SearchUseCase.search(userprofile, search_radius);
 
 
 // initiate search, get filters

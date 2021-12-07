@@ -35,7 +35,7 @@ public class User {
         this.name = name;
     }
 
-    public void setCurrLocation(String location){
+    public void setLocation(String location){
         this.location = location;
     }
 

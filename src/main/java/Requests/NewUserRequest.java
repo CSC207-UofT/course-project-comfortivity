@@ -1,13 +1,9 @@
 package Requests;
-import Entities.*;
-import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
-import Interfaces.*;
-import Interfaces.*;
-import Mapping.*;
 
-public class NewUserRequest implements InterfaceRequest {
+
+import Interfaces.RequestInterface;
+
+public class NewUserRequest implements RequestInterface {
     public int student_id;
     //TODO i just made these public so it would compile. If you want we can make them private and use getters
     public String name;

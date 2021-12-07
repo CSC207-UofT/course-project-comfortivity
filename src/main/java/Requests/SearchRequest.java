@@ -1,8 +1,11 @@
 package Requests;
-import Entities.*;
-import Interfaces.*;
 
-public class SearchRequest implements InterfaceRequest{
+
+import Entities.User;
+import Gateways.schoolMap;
+import Interfaces.RequestInterface;
+
+public class SearchRequest implements RequestInterface {
     public User userProfile;
     public int filterDistance;
     public schoolMap campusMap;

@@ -1,6 +1,6 @@
-import Interfaces.InterfaceRequest;
+import Interfaces.RequestInterface;
 
-public class NewUserRequest implements InterfaceRequest {
+public class NewUserRequest implements RequestInterface {
     int student_id;
     String name;
 
