@@ -2,13 +2,13 @@ package UseCases;
 
 import Entities.Building;
 import Entities.User;
-import Interfaces.InterfaceRequest;
+import Interfaces.RequestInterface;
 import UseCases.UserUseCase;
 
 import java.util.ArrayList;
 
 public class SearchUseCase {
-    public InterfaceRequest SearchRequest;
+    public RequestInterface SearchRequest;
     public ArrayList<Building> buildings;
 
     public float building_points(Building building, User user, Float filterDistance) {
