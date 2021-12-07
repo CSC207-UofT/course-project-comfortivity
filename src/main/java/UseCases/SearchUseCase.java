@@ -2,7 +2,7 @@ package UseCases;
 
 import Entities.Building;
 import Entities.User;
-import Entities.schoolMap;
+import Gateways.schoolMap;
 import Interfaces.InterfaceRequest;
 import UseCases.UserUseCase;
 

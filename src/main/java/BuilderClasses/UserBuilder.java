@@ -38,7 +38,7 @@ public class UserBuilder implements UserBuilderInterface {
         user.setName(name);
     }
     public void loadCurrLocation(String curr_location){
-        user.setCurrLocation(curr_location);
+        user.setLocation(curr_location);
     }
     public void loadReviews(HashMap<Building, String> building_to_review){
         user.setReviews(building_to_review);
