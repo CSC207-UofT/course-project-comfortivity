@@ -69,7 +69,7 @@ public class Main {
         int search_radius = Integer.valueOf(UIController.askTheUser("What search radius would you want"));
         SearchRequest searchRequest = new SearchRequest(userprofile,
                 search_radius, campusMap);
-        ArrayList<Building> preference_building_list = SearchUseCase.search(searchRequest);
+        ArrayList<Building> preference_building_list = SearchUseCase.search(userprofile, search_radius);
         if(preference_building_list.toArray().length == 0){
             return getListContainingEmptyBuilding();
         }

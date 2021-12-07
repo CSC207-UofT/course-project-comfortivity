@@ -2,6 +2,7 @@ package UseCases;
 
 import Entities.Building;
 import Entities.User;
+import Entities.schoolMap;
 import Interfaces.InterfaceRequest;
 import UseCases.UserUseCase;
 
@@ -9,9 +10,8 @@ import java.util.ArrayList;
 
 public class SearchUseCase {
     public InterfaceRequest SearchRequest;
-    public ArrayList<Building> buildings;
 
-    public float building_points(Building building, User user, Float filterDistance) {
+    public static float building_points(Building building, User user, Float filterDistance) {
         int count = 0;
         if (user.getPreferences().get("Group")) {
             if (building.isGroup()) {
@@ -59,8 +59,8 @@ public class SearchUseCase {
 
     }
 
-    public void arrangeArrays(ArrayList<Building> ordered_buildings, ArrayList<Float> ordered_points, Building building,
-                            Float point){
+    public static void arrangeArrays(ArrayList<Building> ordered_buildings, ArrayList<Float> ordered_points, Building building,
+                                     Float point){
         int index = 0;
         if (ordered_buildings.size() == 0){
             ordered_buildings.add(building);
@@ -75,9 +75,11 @@ public class SearchUseCase {
         }
     }
 
-    public ArrayList<Building> search(User user, float filterDistance){
+    public static ArrayList<Building> search(User user, float filterDistance){
         ArrayList<Building> ordered_buildings = new ArrayList<>();
         ArrayList<Float> ordered_points = new ArrayList<>();
+        schoolMap schoolmap = new schoolMap();
+        ArrayList<Building> buildings = schoolmap.getAllBuildings();
         for (Building building: buildings){
             float point = building_points(building, user, filterDistance);
             arrangeArrays(ordered_buildings, ordered_points, building, point);
