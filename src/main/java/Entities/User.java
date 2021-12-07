@@ -1,43 +1,68 @@
-package Entities;
-import java.util.Map;
-import java.util.List;
 import java.util.HashMap;
-import java.util.ArrayList;
 
 public class User {
     public int studentNumber;
     private String name;
     private String location;
-    private HashMap reviews;
-    private HashMap preferences;
+    private HashMap<Building, String> reviews;
+    private HashMap<String, Boolean> preferences;
+
+
+    public User(){}
 
     public User(String name, int studentNumber) {
         this.name = name;
         this.studentNumber = studentNumber;
         this.location = "";
-        // this.reviews = new HashMap<Building, Review>();
-        this.preferences = new HashMap<String, Object>();
+        this.reviews = new HashMap<Building, String>();
+        this.preferences = new HashMap<String, Boolean>();
     }
 
-    public void updatePrefernces(String key, boolean whetherNeeded) {
-        this.preferences.put(key, whetherNeeded);
+
+    public void setStudentNumber(int studentNum){
+        this.studentNumber = studentNum;
     }
-    public void setLocation(String location){
+
+    public String getlocation(){
+        return this.location;
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setCurrLocation(String location){
         this.location = location;
-
     }
+
+    public void setReviews(HashMap<Building, String> reviews){
+        this.reviews = reviews;
+    }
+
+    public void setPreferences(HashMap<String, Boolean> preferences){
+        this.preferences = preferences;
+    }
+
+    public void updatePreferences(String filter, Boolean yesno) {
+        this.preferences.put(filter, yesno);
+    }
+
+    public void updateReviews(Building key, String review) {
+        this.reviews.put(key, review);
+    }
+
     public int getStudentNumber() {
         return this.studentNumber;
     }
-    public HashMap getPreferences(){
+
+    public HashMap<String, Boolean> getPreferences(){
         return this.preferences;
     }
-    public void setPreferences(HashMap preferences){
-        this.preferences = preferences;
-    }
+
     public String getName(){
         return this.name;
     }
+
     public static User load_user(int studentNumber) {
         // info will be some sort of collection, don't exactly know how it'll be so i'll parse later I guess.
 
