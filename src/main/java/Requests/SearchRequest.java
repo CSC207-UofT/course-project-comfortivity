@@ -3,9 +3,10 @@ package Requests;
 
 import Entities.User;
 import Gateways.schoolMap;
-import Interfaces.RequestInterface;
+import Interfaces.InterfaceRequest;
 
-public class SearchRequest implements RequestInterface {
+
+public class SearchRequest implements InterfaceRequest {
     public User userProfile;
     public int filterDistance;
     public schoolMap campusMap;

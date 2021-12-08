@@ -3,6 +3,7 @@ package Entities;
 import java.util.HashMap;
 
 public class User {
+    // an instance of the User class contains the information of the current user under which the code is being run
     public int studentNumber;
     private String name;
     private String location;
@@ -65,16 +66,4 @@ public class User {
         return this.name;
     }
 
-    public static User load_user(int studentNumber) {
-        // info will be some sort of collection, don't exactly know how it'll be so i'll parse later I guess.
-
-
-        //info = DataManager.ProfileReturn(studentNumber);
-        //return new User(info);
-
-        // THIS IS JUST TEMPORARY
-
-        return new User("Michael", 3);
-    }
-    
 }

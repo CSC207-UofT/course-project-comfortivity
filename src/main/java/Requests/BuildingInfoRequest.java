@@ -2,8 +2,8 @@ package Requests;
 
 
 
-import Interfaces.RequestInterface;
+import Interfaces.InterfaceRequest;
 
-public class BuildingInfoRequest implements RequestInterface {
+public class BuildingInfoRequest implements InterfaceRequest {
 
 }

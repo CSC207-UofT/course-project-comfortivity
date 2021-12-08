@@ -1,11 +1,11 @@
 package Requests;
 
 
-import Interfaces.RequestInterface;
+import Interfaces.InterfaceRequest;
 
-public class NewUserRequest implements RequestInterface {
+public class NewUserRequest implements InterfaceRequest {
+    //  a request class that contains the information needed for the code to create a new user
     public int student_id;
-    //TODO i just made these public so it would compile. If you want we can make them private and use getters
     public String name;
 
     public NewUserRequest(int student_id, String name) {

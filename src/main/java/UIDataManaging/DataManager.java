@@ -1,9 +1,7 @@
 package UIDataManaging;
 import java.util.ArrayList;
 
-import Entities.Building;
-import Entities.Review;
-import Entities.User;
+import Entities.*;
 import Gateways.schoolMap;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -61,7 +59,12 @@ public class DataManager {
         // Load the data from the given file corresponding to the student with number studentNumber
         // into a Collection object info and return it.
         // THIS IS TEMPORARY.
-        User studentdata = new User("jeff", 100);
+
+        UserBuilder userBuilder = new UserBuilder();
+        UserBuilderDirector userBuilderDirector = new UserBuilderDirector(userBuilder);
+
+        User studentdata = userBuilderDirector.startUserBuild(100, "jeff");
+//        User studentdata = new User("jeff", 100);
         return studentdata;
     }
 

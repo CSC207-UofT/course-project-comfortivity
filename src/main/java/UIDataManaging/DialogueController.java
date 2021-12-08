@@ -1,8 +1,6 @@
 package UIDataManaging;
 
-import Entities.Building;
-import Entities.Review;
-import Entities.User;
+import Entities.*;
 import Gateways.schoolMap;
 import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;
@@ -113,13 +111,18 @@ public class DialogueController {
      * guides the user through making a profile
      */
     {
+        //creates new instances of user
+        UserBuilder userBuilder = new UserBuilder();
+        UserBuilderDirector userBuilderDirector = new UserBuilderDirector(userBuilder);
+
         //move to UserUseCase
         int student_number = Integer.valueOf(UIController.askTheUser("What's your student number"));//reads input
         String name = UIController.askTheUser("What's your Full Name");
         NewUserRequest UserRequestToPass = new NewUserRequest(student_number, name);
         UIController.processRequest(UserRequestToPass);
 
-        return new User(name, student_number);
+        return userBuilderDirector.startUserBuild(student_number, name);
+//        return new User(name, student_number);
     }
 
 

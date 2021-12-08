@@ -1,4 +1,4 @@
-package BuilderClasses;
+package Entities;
 
 import Entities.Building;
 import Entities.User;
@@ -7,28 +7,11 @@ import Interfaces.UserBuilderInterface;
 import java.util.HashMap;
 
 public class UserBuilder implements UserBuilderInterface {
+    // the builder class for the User class which has a slew of methods that update the User class which allows client
+    // code to update a single User instance without actually making direct calls to the User instance
+
     private final User user = new User();
 
-    public User createUser(int student_id, String name){
-        this.loadStudentNumber(student_id);
-        this.loadName(name);
-        return user;
-    }
-
-    public User createUser(int student_id){
-        this.loadStudentNumber(student_id);
-        return user;
-    }
-
-    public User createUser(int student_id, String name, String curr_location,
-                           HashMap<Building, String> reviews, HashMap<String, Boolean> preferences){
-        this.loadStudentNumber(student_id);
-        this.loadName(name);
-        this.loadCurrLocation(curr_location);
-        this.loadReviews(reviews);
-        this.loadPreferences(preferences);
-        return user;
-    }
 
     public void loadStudentNumber(int student_number){
         user.setStudentNumber(student_number);

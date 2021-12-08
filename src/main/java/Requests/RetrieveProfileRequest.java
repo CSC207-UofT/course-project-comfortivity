@@ -1,11 +1,12 @@
 package Requests;
 
 
-import Interfaces.RequestInterface;
+import Interfaces.InterfaceRequest;
 
-public class RetrieveProfileRequest implements RequestInterface {
+public class RetrieveProfileRequest implements InterfaceRequest {
+    // a request class that contains the information needed for the code to retrieve an already created profile
     public int student_id;
-    //TODO i just made this public so it would compile. If you want we can make it private and use getters
+
 
     public RetrieveProfileRequest(int student_id) {
         this.student_id = student_id;
