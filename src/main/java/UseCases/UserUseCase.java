@@ -2,6 +2,8 @@ package UseCases;
 
 import Entities.Building;
 import Entities.User;
+import Entities.UserBuilder;
+import Entities.UserBuilderDirector;
 
 public class UserUseCase {
 
@@ -9,6 +11,12 @@ public class UserUseCase {
 
     public static void updateUser(String name, int id, UserDataInterface udi) {
         udi.updateNewUserInfo(name, id);
+    }
+
+    public static User loadUser(int id, UserDataInterface udi) {
+        UserBuilder userBuilder = new UserBuilder();
+        UserBuilderDirector userBuilderDirector = new UserBuilderDirector(userBuilder);
+        return userBuilderDirector.startUserBuild(id, udi.retrieveUserName(id));
     }
 
     public static int findDistance(String start, Building finish) {
