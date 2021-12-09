@@ -40,7 +40,7 @@ public class schoolMap extends HashMap<String, ArrayList<Building>> {
                         MongoCursor<String> results = docs.iterator();
                         while(results.hasNext()) {
                             buildings.add(BuildingUseCase.loadBuilding(results.next(), bdi));
-                            System.out.println(results.next());
+                            //System.out.println(results.next());
                         }
                         new_map.put(address, buildings);
                     } catch (MongoException me) {

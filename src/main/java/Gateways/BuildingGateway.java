@@ -8,12 +8,11 @@ import static com.mongodb.client.model.Filters.eq;
 
 import Entities.Building;
 import UseCases.BuildingDataInterface;
+import com.mongodb.MongoException;
+import com.mongodb.client.*;
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Projections;
 
 public class BuildingGateway implements BuildingDataInterface {
@@ -25,26 +24,54 @@ public class BuildingGateway implements BuildingDataInterface {
         try (MongoClient mongoClient = MongoClients.create(uri)) {
             MongoDatabase database = mongoClient.getDatabase("comfortivity");
             MongoCollection<Document> collection = database.getCollection("buildings");
-            Bson projectionFields = Projections.fields(
-                    Projections.include("code"),
-                    Projections.excludeId());
-            Document doc = collection.find(eq("code", code))
-                    .projection(projectionFields)
-                    .first();
-            if (doc == null) {
-                System.out.println("sorry nothing found");
-            } else {
-                building.setCode(code);
-                building.setName((String) doc.get("name"));
-                building.setAddress((String) doc.get("address"));
-                building.setStar_rating((Integer) doc.get("star_rating"));
-                building.setGroup((Boolean) doc.get("group"));
-                building.setIndividual((Boolean) doc.get("individual"));
-                building.setBathrooms((Boolean) doc.get("bathrooms"));
-                building.setWater((Boolean) doc.get("water"));
-                building.setFood((Boolean) doc.get("food"));
-                building.setAccessibility((Boolean) doc.get("accessibility"));
-                //System.out.println(doc.toJson());
+            building.setCode(code);
+            try {
+                String name = collection.distinct("name", eq("code", code), String.class).first();
+                building.setName(name);
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+            try {
+                String address = collection.distinct("address", eq("code", code), String.class).first();
+                building.setAddress(address);
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+            try {
+                Boolean group = collection.distinct("group", eq("code", code), Boolean.class).first();
+                building.setGroup(Boolean.TRUE.equals(group));
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+            try {
+                Boolean individual = collection.distinct("individual", eq("code", code), Boolean.class).first();
+                building.setIndividual(Boolean.TRUE.equals(individual));
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+            try {
+                Boolean bathroom = collection.distinct("bathroom", eq("code", code), Boolean.class).first();
+                building.setGroup(Boolean.TRUE.equals(bathroom));
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+            try {
+                Boolean water = collection.distinct("water", eq("code", code), Boolean.class).first();
+                building.setGroup(Boolean.TRUE.equals(water));
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+            try {
+                Boolean food = collection.distinct("food", eq("code", code), Boolean.class).first();
+                building.setGroup(Boolean.TRUE.equals(food));
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+            try {
+                Boolean accessibility = collection.distinct("accessibility", eq("code", code), Boolean.class).first();
+                building.setGroup(Boolean.TRUE.equals(accessibility));
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
             }
             return building;
         }
