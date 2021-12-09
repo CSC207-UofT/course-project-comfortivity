@@ -86,7 +86,7 @@ public class SearchUseCase {
         // returns a list of buildings sorted in order of preference based on the users search filters and requests.
         ArrayList<Building> ordered_buildings = new ArrayList<>();
         ArrayList<Float> ordered_points = new ArrayList<>();
-        schoolMap schoolmap = new schoolMap();
+        schoolMap schoolmap = MapUseCase.loadMap();
         ArrayList<Building> buildings = schoolmap.getAllBuildings();
         for (Building building: buildings){
             float point = building_points(building, user, filterDistance);
