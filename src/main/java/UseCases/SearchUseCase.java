@@ -7,11 +7,14 @@ import Interfaces.InterfaceRequest;
 import UseCases.UserUseCase;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class SearchUseCase {
     public InterfaceRequest SearchRequest;
 
     public static float building_points(Building building, User user, Float filterDistance) {
+        // helper function for search function. Takes a building and a user instance, and gives it a score based on how
+        // much of a good match the building was for the user's search request.
         int count = 0;
         if (user.getPreferences().get("Group")) {
             if (building.isGroup()) {
@@ -61,6 +64,8 @@ public class SearchUseCase {
 
     public static void arrangeArrays(ArrayList<Building> ordered_buildings, ArrayList<Float> ordered_points, Building building,
                                      Float point){
+        // point corresponds to building's point gotten from building_points. Point is then placed in a sorted manner in
+        // ordered_points and then building is placed at the same index in ordered_buildings as points was in ordered_points.
         int index = 0;
         if (ordered_buildings.size() == 0){
             ordered_buildings.add(building);
@@ -76,6 +81,7 @@ public class SearchUseCase {
     }
 
     public static ArrayList<Building> search(User user, float filterDistance){
+        // returns a list of buildings sorted in order of preference based on the users search filters and requests.
         ArrayList<Building> ordered_buildings = new ArrayList<>();
         ArrayList<Float> ordered_points = new ArrayList<>();
         //todo make this os it uses an actual thing or will it do it automatically idrk
