@@ -1,10 +1,12 @@
 package UIDataManaging;
 
 import Entities.*;
+import Gateways.ReviewGateway;
 import Gateways.schoolMap;
 import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;
 import UseCases.BuildingUseCase;
+import UseCases.ReviewDataInterface;
 import UseCases.ReviewUseCase;
 import UseCases.SearchUseCase;
 
@@ -101,7 +103,7 @@ public class DialogueController {
     {
         Building buildingToReview = BuildingUseCase.getBuildingToReview(campusMap);
         Review review = UIController.getThemToReview(buildingToReview);
-        ReviewUseCase.review(userProfile, buildingToReview, review);
+        ReviewUseCase.review(userProfile, buildingToReview, review, new ReviewGateway());
     }
 
     private static User newProfile() throws IOException, InterruptedException
