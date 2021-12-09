@@ -1,8 +1,7 @@
 import Entities.Building;
 import org.junit.Before;
 import org.junit.Test;
-import java.util.List;
-import java.util.HashMap;
+
 
 import static org.junit.Assert.*;
 
@@ -17,13 +16,17 @@ class BuildingTest {
     @Before
     public void setUp() {
         bldg = new Building();
+        bldg.setName("Sorbara");
+        bldg.setAddress("81 St. Mary Street");
     }
+
+
 
     @Test
     public void testCreateBuilding() {
-        Building newBLDG = new Building("Whitney Hall", "85 St George St");
-        HashMap attributes = newBLDG.getAttributes();
-        assertEquals(attributes.get("address"), "85 St George St");
-        System.out.println("eatshit");
+        assertEquals(bldg.getCode(), "");
+        assertEquals(bldg.getName(), "Sorbara");
+        assertEquals(bldg.getAddress(), "81 St. Mary Street");
+        System.out.println("Works");
     }
 }
