@@ -1,4 +1,4 @@
-import Entities.Review;
+
 import Entities.User;
 import Entities.UserBuilder;
 import Entities.UserBuilderDirector;
@@ -6,9 +6,9 @@ import Entities.Building;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Collection;
+
 import java.util.HashMap;
-import java.util.List;
+
 
 import static org.junit.Assert.*;
 
@@ -20,6 +20,7 @@ class UserTest {
         UserTest hey = new UserTest();
         hey.setUp();
         hey.testCreateUser();
+        hey.testCreateUserLarge();
     }
 
     @Before
@@ -38,6 +39,7 @@ class UserTest {
         System.out.println("Works");
     }
 
+    @Test
     public void testCreateUserLarge() {
         HashMap<Building, String> reviews = new HashMap<>();
         HashMap<String, Boolean> preferences = new HashMap<>();

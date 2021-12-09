@@ -12,6 +12,7 @@ class ReviewTest {
         ReviewTest hey = new ReviewTest();
         hey.setUp();
         hey.testCreateReview();
+        hey.testCreateReviewSet();
     }
     @Before
     public void setUp() {
