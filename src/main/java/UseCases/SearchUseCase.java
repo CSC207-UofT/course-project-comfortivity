@@ -75,18 +75,17 @@ public class SearchUseCase {
                 if (point <= sel_point){
                     ordered_buildings.add(index, building);
                     ordered_points.add(index, point);
-                    return;
+//                    return;
                 }
                 index += 1;
             }
         }
     }
 
-    public static ArrayList<Building> search(User user, float filterDistance){
+    public static ArrayList<Building> search(User user, float filterDistance, schoolMap schoolmap){
         // returns a list of buildings sorted in order of preference based on the users search filters and requests.
         ArrayList<Building> ordered_buildings = new ArrayList<>();
         ArrayList<Float> ordered_points = new ArrayList<>();
-        schoolMap schoolmap = new schoolMap();
         ArrayList<Building> buildings = schoolmap.getAllBuildings();
         for (Building building: buildings){
             float point = building_points(building, user, filterDistance);
