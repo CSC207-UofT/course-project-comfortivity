@@ -52,4 +52,14 @@ public class UserGateway implements UserDataInterface {
         }
     }
 
+    @Override
+    public String retrieveUserName(int id) {
+        String uri = "mongodb+srv://Comfortivity:CSC207@cluster0.rgnj6.mongodb.net/comfortivity?retryWrites=true&w=majority";
+        try (MongoClient mongoClient = MongoClients.create(uri)) {
+            MongoDatabase database = mongoClient.getDatabase("comfortivity");
+            MongoCollection<Document> collection = database.getCollection("users");
+            return collection.distinct("name", eq("id", id), String.class).first();
+        }
+    }
+
 }
