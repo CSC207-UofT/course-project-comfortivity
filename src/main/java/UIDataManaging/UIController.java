@@ -3,9 +3,11 @@ package UIDataManaging;
 import Entities.Building;
 import Entities.Review;
 import Entities.User;
+import Gateways.UserGateway;
 import Requests.NewReviewRequests;
 import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;
+import UseCases.UserUseCase;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -33,20 +35,14 @@ public class UIController {
     }
 
 
-    public static void processRequest(NewReviewRequests req)
-    /**
-     * processes a newuser request in the datamanager (makes a user, i mean)
-     */
-    {
-        DataManager.updateNewReview(req.student_id, req.review, req.revbuilding);
-    }
+
 
     public static void processRequest(NewUserRequest req)
     /**
      * processes an updatenewuser request (updates a user)
      */
     {
-        DataManager.updateNewUser(req.student_id, req.name);
+        UserUseCase.updateUser(req.name, req.student_id, new UserGateway());
     }
 
     public static void displaySearchResultFrame(ArrayList<Building> buildings)
@@ -60,10 +56,10 @@ public class UIController {
 
     public static User processRequest(RetrieveProfileRequest req)
     /**
-    asks the datamanager to return the profile for the given student id
+    asks the appropriate use case to return the profile for the given student id
      */
     {
-        return DataManager.profileReturn(req.student_id);
+        return UserUseCase.loadUser(req.student_id, new UserGateway());
     }
 
     public static String askForLocation() throws InterruptedException, IOException

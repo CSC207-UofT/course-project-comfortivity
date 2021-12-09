@@ -39,6 +39,7 @@ public class User {
     }
 
     public void setReviews(HashMap<Building, Review> reviews){
+
         this.reviews = reviews;
     }
 
@@ -53,6 +54,9 @@ public class User {
     }
 
     public void updateReviews(Building key, Review review) {
+        if(this.reviews == null){
+            this.reviews = new HashMap<Building, Review>();
+        }
         this.reviews.put(key, review);
     }
 
