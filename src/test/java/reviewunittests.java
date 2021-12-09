@@ -12,21 +12,26 @@ class ReviewTest {
         ReviewTest hey = new ReviewTest();
         hey.setUp();
         hey.testCreateReview();
+        hey.testCreateReviewSet();
     }
     @Before
     public void setUp() {
-        review = new Review();
+        Review review;
     }
 
     @Test
     public void testCreateReview() {
-        Review newREVIEW = new Review("5", "decent study area");
-        assertEquals(attributes.get("rate"), "5");
-        System.out.println("nice");
+        review = new Review(5, "decent study area");
+        assertEquals(review.getRating(), 5);
+        assertEquals(review.getComment(), "nice");
+        System.out.println("Works");
     }
-    public void testCreateReview() {
-        Review newREVIEW = new Review("0", "dont come");
-        assertEquals(attributes.get("comment"), "dont come");
+    public void testCreateReviewSet() {
+        review = new Review(0, "dont come");
+        review.setComment("Please come");
+        review.setRating(0);
+        assertEquals(review.getRating(), 0);
+        assertEquals(review.getComment(), "Please come");
         System.out.println("nice");
     }
 }

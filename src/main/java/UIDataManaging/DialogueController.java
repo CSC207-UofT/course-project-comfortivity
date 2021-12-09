@@ -4,7 +4,6 @@ import Entities.*;
 import Gateways.schoolMap;
 import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;
-import Requests.SearchRequest;
 import UseCases.BuildingUseCase;
 import UseCases.ReviewUseCase;
 import UseCases.SearchUseCase;
@@ -63,8 +62,6 @@ public class DialogueController {
 
 
         int search_radius = Integer.valueOf(UIController.askTheUser("What search radius would you want"));
-        SearchRequest searchRequest = new SearchRequest(userprofile,
-                search_radius, campusMap);
 
         return SearchUseCase.search(userprofile, search_radius);
 

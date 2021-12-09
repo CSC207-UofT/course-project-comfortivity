@@ -42,6 +42,8 @@ public class User {
         this.reviews = reviews;
     }
 
+    public HashMap<Building, Review> getReviews(){return this.reviews;}
+
     public void setPreferences(HashMap<String, Boolean> preferences){
         this.preferences = preferences;
     }
