@@ -101,7 +101,6 @@ public class DialogueController {
     {
         Building buildingToReview = BuildingUseCase.getBuildingToReview(campusMap);
         Review review = UIController.getThemToReview(buildingToReview);
-        DataManager.updateNewReview(userProfile.getStudentNumber(), review, buildingToReview);
         ReviewUseCase.review(userProfile, buildingToReview, review);
     }
 
