@@ -2,9 +2,6 @@ package Gateways;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-
-import static com.mongodb.client.model.Filters.eq;
-
 import Entities.Building;
 import UseCases.BuildingDataInterface;
 import UseCases.BuildingUseCase;
@@ -13,17 +10,16 @@ import com.mongodb.MongoException;
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
-import org.bson.conversions.Bson;
-import com.mongodb.client.model.Projections;
-import com.mongodb.client.model.Sorts;
 
-//move to gateway package
 public class schoolMap extends HashMap<String, ArrayList<Building>> implements SchoolMapDataInterface {
 
+    /**
+     * Instantiates schoolMap based on all buildings from database
+     * @return returns an instance of schoolMap built from all buildings in database
+     */
     @Override
     public schoolMap retrieveMapInfo(){
         schoolMap new_map = new schoolMap();
-//        new_map.put("A1", new ArrayList<Building>());
         String uri = "mongodb+srv://Comfortivity:CSC207@cluster0.rgnj6.mongodb.net/comfortivity?retryWrites=true&w=majority";
         for (char alphabet = 'A'; alphabet <= 'F'; alphabet++) {
             for (int i = 1; i <= 5; i++) {
@@ -40,7 +36,6 @@ public class schoolMap extends HashMap<String, ArrayList<Building>> implements S
                         MongoCursor<String> results = docs.iterator();
                         while(results.hasNext()) {
                             buildings.add(BuildingUseCase.loadBuilding(results.next(), bdi));
-                            // System.out.println(results.next());
                         }
                         new_map.put(address, buildings);
                     } catch (MongoException me) {
@@ -50,10 +45,6 @@ public class schoolMap extends HashMap<String, ArrayList<Building>> implements S
             }
         }
         return new_map;
-    }
-
-    public void addBuilding(String coord, Building bldg){
-        ((ArrayList)((HashMap) this).get(coord)).add(bldg);
     }
 
     public ArrayList<Building> getAllBuildings(){

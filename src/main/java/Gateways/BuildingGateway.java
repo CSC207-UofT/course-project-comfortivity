@@ -1,22 +1,21 @@
 package Gateways;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import static com.mongodb.client.model.Filters.eq;
 
 import Entities.Building;
 import UseCases.BuildingDataInterface;
 import com.mongodb.MongoException;
 import com.mongodb.client.*;
-import com.mongodb.client.model.Filters;
 import org.bson.Document;
-import org.bson.conversions.Bson;
-import com.mongodb.client.model.Projections;
 
 public class BuildingGateway implements BuildingDataInterface {
 
+    /**
+     * Retrieves all building attributes as specified by code from the database to instantiate and return an
+     * instance of Building
+     * @param code unique code of building found in database to specify attributes
+     * @return returns an instance of Building specified by code
+     */
     @Override
     public Building retrieveBuildingInfo(String code) {
         Building building = new Building();

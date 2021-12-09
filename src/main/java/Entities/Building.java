@@ -1,6 +1,4 @@
 package Entities;
-import Interfaces.Buildable;
-import UIDataManaging.DataManager;
 
 import java.util.*;
 

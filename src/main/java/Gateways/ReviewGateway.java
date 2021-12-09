@@ -3,7 +3,6 @@ package Gateways;
 import Entities.Building;
 import Entities.Review;
 import Entities.User;
-import UseCases.BuildingUseCase;
 import UseCases.ReviewDataInterface;
 import UseCases.ReviewUseCase;
 import com.mongodb.MongoException;
@@ -17,6 +16,12 @@ import java.util.ArrayList;
 
 public class ReviewGateway implements ReviewDataInterface {
 
+    /**
+     * Adds review info to database
+     * @param user user who wrote the review
+     * @param building building the review is about
+     * @param review the review whose info is being added to the database
+     */
     @Override
     public void addReviewInfo(User user, Building building, Review review) {
         String uri = "mongodb+srv://Comfortivity:CSC207@cluster0.rgnj6.mongodb.net/comfortivity?retryWrites=true&w=majority";
@@ -36,6 +41,11 @@ public class ReviewGateway implements ReviewDataInterface {
         }
     }
 
+    /**
+     * Returns an ArrayList of all reviews from database for a building specified by code
+     * @param code specifies building found in database
+     * @return returns ArrayList of reviews
+     */
     @Override
     public ArrayList<Review> retrieveReviews(String code) {
         String uri = "mongodb+srv://Comfortivity:CSC207@cluster0.rgnj6.mongodb.net/comfortivity?retryWrites=true&w=majority";

@@ -11,6 +11,12 @@ public class BuildingUseCase {
 
     BuildingDataInterface buildingDataInterface;
 
+    /**
+     * Instantiates Building found in database
+     * @param code code that represents unique building found in database
+     * @param bdi BuildingDataInterface
+     * @return returns instance of Building based off code
+     */
     public static Building loadBuilding(String code, BuildingDataInterface bdi) {
 
         return bdi.retrieveBuildingInfo(code);

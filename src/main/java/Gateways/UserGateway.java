@@ -1,6 +1,5 @@
 package Gateways;
 
-import Entities.User;
 import UseCases.UserDataInterface;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoClient;
@@ -19,6 +18,11 @@ import static com.mongodb.client.model.Filters.eq;
 
 public class UserGateway implements UserDataInterface {
 
+    /**
+     * Adds or updates user info to database if user exists in database or not
+     * @param name the name to update user with
+     * @param id unique id to specify which user is added or updated
+     */
     @Override
     public void updateNewUserInfo(String name, int id) {
         String uri = "mongodb+srv://Comfortivity:CSC207@cluster0.rgnj6.mongodb.net/comfortivity?retryWrites=true&w=majority";
@@ -52,6 +56,11 @@ public class UserGateway implements UserDataInterface {
         }
     }
 
+    /**
+     * Returns the name of user specified by id from database
+     * @param id unique id to specify user info from database
+     * @return returns name of user
+     */
     @Override
     public String retrieveUserName(int id) {
         String uri = "mongodb+srv://Comfortivity:CSC207@cluster0.rgnj6.mongodb.net/comfortivity?retryWrites=true&w=majority";
