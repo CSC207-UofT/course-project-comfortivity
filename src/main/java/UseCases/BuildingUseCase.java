@@ -24,7 +24,7 @@ public class BuildingUseCase {
         String answer = GUI.genericPromptUserResponse("Which building do you want to review?");
         ArrayList<Building> buildings = campusMap.getAllBuildings();
         for(Building building : buildings){
-            if(building.getName() == answer){
+            if(building.getName().equals(answer)){
                 return building;
             }
         }
