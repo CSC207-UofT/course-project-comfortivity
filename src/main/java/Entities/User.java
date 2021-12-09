@@ -7,7 +7,7 @@ public class User {
     public int studentNumber;
     private String name;
     private String location;
-    private HashMap<Building, String> reviews;
+    private HashMap<Building, Review> reviews;
     private HashMap<String, Boolean> preferences;
 
 
@@ -17,7 +17,7 @@ public class User {
         this.name = name;
         this.studentNumber = studentNumber;
         this.location = "";
-        this.reviews = new HashMap<Building, String>();
+        this.reviews = new HashMap<Building, Review>();
         this.preferences = new HashMap<String, Boolean>();
     }
 
@@ -38,7 +38,7 @@ public class User {
         this.location = location;
     }
 
-    public void setReviews(HashMap<Building, String> reviews){
+    public void setReviews(HashMap<Building, Review> reviews){
         this.reviews = reviews;
     }
 
@@ -50,7 +50,7 @@ public class User {
         this.preferences.put(filter, yesno);
     }
 
-    public void updateReviews(Building key, String review) {
+    public void updateReviews(Building key, Review review) {
         this.reviews.put(key, review);
     }
 

@@ -78,6 +78,7 @@ public class SearchUseCase {
     public static ArrayList<Building> search(User user, float filterDistance){
         ArrayList<Building> ordered_buildings = new ArrayList<>();
         ArrayList<Float> ordered_points = new ArrayList<>();
+        //todo make this os it uses an actual thing or will it do it automatically idrk
         schoolMap schoolmap = new schoolMap();
         ArrayList<Building> buildings = schoolmap.getAllBuildings();
         for (Building building: buildings){

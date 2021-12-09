@@ -6,6 +6,7 @@ import Requests.NewUserRequest;
 import Requests.RetrieveProfileRequest;
 import Requests.SearchRequest;
 import UseCases.BuildingUseCase;
+import UseCases.ReviewUseCase;
 import UseCases.SearchUseCase;
 
 import java.io.IOException;
@@ -104,6 +105,7 @@ public class DialogueController {
         Building buildingToReview = BuildingUseCase.getBuildingToReview(campusMap);
         Review review = UIController.getThemToReview(buildingToReview);
         DataManager.updateNewReview(userProfile.getStudentNumber(), review, buildingToReview);
+        ReviewUseCase.review(userProfile, buildingToReview, review);
     }
 
     private static User newProfile() throws IOException, InterruptedException
