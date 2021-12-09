@@ -1,8 +1,5 @@
 
-import Entities.User;
-import Entities.UserBuilder;
-import Entities.UserBuilderDirector;
-import Entities.Building;
+import Entities.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -41,7 +38,7 @@ class UserTest {
 
     @Test
     public void testCreateUserLarge() {
-        HashMap<Building, String> reviews = new HashMap<>();
+        HashMap<Building, Review> reviews = new HashMap<>();
         HashMap<String, Boolean> preferences = new HashMap<>();
         User user = userBuilderDirector.startUserBuild(1005637, "Nnamdi Azikiwe", "81 St. Maru Stree", reviews, preferences);
         assertEquals(user.getStudentNumber(), 1005637);
