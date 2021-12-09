@@ -17,8 +17,8 @@ public class User {
         this.name = name;
         this.studentNumber = studentNumber;
         this.location = "";
-        this.reviews = new HashMap<Building, String>();
-        this.preferences = new HashMap<String, Boolean>();
+        this.reviews = new HashMap<>();
+        this.preferences = new HashMap<>();
     }
 
 
