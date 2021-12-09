@@ -7,6 +7,7 @@ import Entities.User;
 import Entities.Building;
 import Gateways.schoolMap;
 import UseCases.MapUseCase;
+import UseCases.SchoolMapDataInterface;
 
 public class Main {
     private static User userProfile;
@@ -44,7 +45,8 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
 //     
         UIController.welcomeTheUser();
-        schoolMap campusMap = MapUseCase.loadMap();
+        SchoolMapDataInterface smdi = new schoolMap();
+        schoolMap campusMap = MapUseCase.loadMap(smdi);
         userProfile = DialogueController.beginLoginSequence();
         DialogueController.takeUserOrders(userProfile, campusMap);
 

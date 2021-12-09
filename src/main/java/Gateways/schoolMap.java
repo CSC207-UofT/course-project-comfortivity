@@ -8,6 +8,7 @@ import static com.mongodb.client.model.Filters.eq;
 import Entities.Building;
 import UseCases.BuildingDataInterface;
 import UseCases.BuildingUseCase;
+import UseCases.SchoolMapDataInterface;
 import com.mongodb.MongoException;
 import com.mongodb.client.*;
 import com.mongodb.client.model.Filters;
@@ -17,10 +18,10 @@ import com.mongodb.client.model.Projections;
 import com.mongodb.client.model.Sorts;
 
 //move to gateway package
-public class schoolMap extends HashMap<String, ArrayList<Building>> {
+public class schoolMap extends HashMap<String, ArrayList<Building>> implements SchoolMapDataInterface {
 
-
-    public static schoolMap retrieveMapInfo(){
+    @Override
+    public schoolMap retrieveMapInfo(){
         schoolMap new_map = new schoolMap();
 //        new_map.put("A1", new ArrayList<Building>());
         String uri = "mongodb+srv://Comfortivity:CSC207@cluster0.rgnj6.mongodb.net/comfortivity?retryWrites=true&w=majority";

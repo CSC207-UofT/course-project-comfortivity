@@ -5,13 +5,9 @@ import UIDataManaging.DataManager;
 
 public class MapUseCase {
 
-    public static schoolMap loadMap() {
-        return schoolMap.retrieveMapInfo();
-    }
+    SchoolMapDataInterface schoolMapDataInterface;
 
-    public static schoolMap retrieveMap(){
-        //move to MapUseCase
-        schoolMap campusMap = DataManager.loadMapFromFile();
-        return campusMap;
+    public static schoolMap loadMap(SchoolMapDataInterface smdi) {
+        return smdi.retrieveMapInfo();
     }
 }
