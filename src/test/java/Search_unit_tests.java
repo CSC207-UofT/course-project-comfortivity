@@ -40,8 +40,8 @@ public class Search_unit_tests {
 
     @Test
     public void testSearch() {
-        schoolMap schoolmap = schoolMap.retrieveMapInfo();
-        ArrayList<Building> searchResult = SearchUseCase.search(user, (float) 50.1, schoolmap);
-        System.out.println(searchResult);
+//        schoolMap schoolmap = schoolMap.retrieveMapInfo();
+//        ArrayList<Building> searchResult = SearchUseCase.search(user, (float) 50.1, schoolmap);
+//        System.out.println(searchResult);
     }
 }
