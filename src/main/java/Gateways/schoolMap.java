@@ -24,7 +24,6 @@ public class schoolMap extends HashMap<String, ArrayList<Building>> {
         schoolMap new_map = new schoolMap();
 //        new_map.put("A1", new ArrayList<Building>());
         String uri = "mongodb+srv://Comfortivity:CSC207@cluster0.rgnj6.mongodb.net/comfortivity?retryWrites=true&w=majority";
-        String output = "";
         for (char alphabet = 'A'; alphabet <= 'F'; alphabet++) {
             for (int i = 1; i <= 5; i++) {
                 String address = alphabet + String.valueOf(i);
@@ -40,7 +39,7 @@ public class schoolMap extends HashMap<String, ArrayList<Building>> {
                         MongoCursor<String> results = docs.iterator();
                         while(results.hasNext()) {
                             buildings.add(BuildingUseCase.loadBuilding(results.next(), bdi));
-                            //System.out.println(results.next());
+                            // System.out.println(results.next());
                         }
                         new_map.put(address, buildings);
                     } catch (MongoException me) {
