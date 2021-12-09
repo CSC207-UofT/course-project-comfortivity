@@ -75,8 +75,8 @@ public class SearchUseCase {
                 if (point <= sel_point){
                     ordered_buildings.add(index, building);
                     ordered_points.add(index, point);
-                    return;
                 }
+                index += 1;
             }
         }
     }
@@ -85,7 +85,6 @@ public class SearchUseCase {
         // returns a list of buildings sorted in order of preference based on the users search filters and requests.
         ArrayList<Building> ordered_buildings = new ArrayList<>();
         ArrayList<Float> ordered_points = new ArrayList<>();
-        //todo make this os it uses an actual thing or will it do it automatically idrk
         schoolMap schoolmap = new schoolMap();
         ArrayList<Building> buildings = schoolmap.getAllBuildings();
         for (Building building: buildings){
