@@ -1,8 +1,5 @@
 package Entities;
 
-import Requests.NewUserRequest;
-import Requests.RetrieveProfileRequest;
-
 import java.util.HashMap;
 
 public class UserBuilderDirector {
