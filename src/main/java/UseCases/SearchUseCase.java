@@ -75,7 +75,7 @@ public class SearchUseCase {
                 if (point <= sel_point){
                     ordered_buildings.add(index, building);
                     ordered_points.add(index, point);
-                    return;
+//                    return;
                 }
                 index += 1;
             }
