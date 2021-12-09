@@ -42,7 +42,7 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
-//        CLI cli = new CLI();
+//     
         UIController.welcomeTheUser();
         schoolMap campusMap = MapUseCase.loadMap();
         userProfile = DialogueController.beginLoginSequence();

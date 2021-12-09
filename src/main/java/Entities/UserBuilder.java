@@ -23,11 +23,11 @@ public class UserBuilder implements UserBuilderInterface {
     public void loadCurrLocation(String curr_location){
         user.setLocation(curr_location);
     }
-    public void loadReviews(HashMap<Building, String> building_to_review){
+    public void loadReviews(HashMap<Building, Review> building_to_review){
         user.setReviews(building_to_review);
     }
 
-    public void addUserReview(Building building, String review){
+    public void addUserReview(Building building, Review review){
         user.updateReviews(building, review);
     }
 
