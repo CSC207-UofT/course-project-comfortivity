@@ -1,20 +1,14 @@
 package UseCases;
 
 import Entities.Building;
+import Entities.User;
 
 public class UserUseCase {
 
-    public static void updateUser() {
+    UserDataInterface userDataInterface;
 
-    }
-
-    public static void addNewUser() {
-
-    }
-
-    public static boolean existenceUser() {
-
-        return true;
+    public static void updateUser(String name, int id, UserDataInterface udi) {
+        udi.updateNewUserInfo(name, id);
     }
 
     public static int findDistance(String start, Building finish) {
