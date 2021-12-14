@@ -1,13 +1,7 @@
 package UIDataManaging;
-import java.util.Map;
-import java.util.List;
-import java.util.HashMap;
 import java.util.ArrayList;
 import Entities.*;
-import UIDataManaging.*;
-import Requests.*;
-import UseCases.*;
-import Interfaces.*;
+import Entities.Users.UserData;
 import Mapping.*;
 public class DataManager {
 
@@ -30,11 +24,11 @@ public class DataManager {
 
     }
 
-    public static User profileReturn(int studentNumber) {
+    public static UserData profileReturn(int studentNumber) {
         // Load the data from the given file corresponding to the student with number studentNumber
         // into a Collection object info and return it.
         // THIS IS TEMPORARY.
-        User studentdata = new User("jeff", 100);
+        UserData studentdata = new UserData("jeff", "100");
         return studentdata;
     }
 

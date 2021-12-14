@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 import Entities.*;
+import Entities.Users.UserData;
 import Requests.*;
 import Mapping.*;
 
@@ -50,7 +51,7 @@ public class UIController {
         return getBuildingToReview(campusMap);
 
     }
-    public static User processRequest(RetrieveProfileRequest req) {
+    public static UserData processRequest(RetrieveProfileRequest req) {
         return DataManager.profileReturn(req.student_id);
     }
 

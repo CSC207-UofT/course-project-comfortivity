@@ -61,6 +61,7 @@ public class Building implements Buildable {
     }
 
     public String getName() {return this.name;}
+
     public HashMap<String, Object> getAttributes() {
         HashMap<String, Object> attributes = new HashMap<String, Object>();
         attributes.put("address", this.address);

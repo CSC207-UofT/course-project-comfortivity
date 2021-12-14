@@ -60,9 +60,9 @@ public class schoolMap extends HashMap{
                 buildings.add((Building) building);
             }
         }
-    if(buildings.size() == 0){
-        return Main.getListContainingEmptyBuilding();
-    }
+//    if(buildings.size() == 0){
+//        return java.Main.getListContainingEmptyBuilding();
+//    }
     return buildings;
     }
 }
